@@ -1,0 +1,181 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Octave: Hessian Sparsity Patterns: Example and Test</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Octave: Hessian Sparsity Patterns: Example and Test">
+<meta name="keywords" id="keywords" content=" octave: hessian sparsity patterns: example test ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_sparse_hes_pattern_xam.m_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/cppad_swig" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="sparse_hes_pattern_xam.cpp.htm" target="_top">Prev</a>
+</td><td><a href="sparse_hes_pattern_xam.pm.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>cppad_swig</option>
+<option>library</option>
+<option>sparse</option>
+<option>hes_sparsity</option>
+<option>sparse_hes_pattern_xam.m</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down4(this)'>
+<option>cppad_swig-&gt;</option>
+<option>testing</option>
+<option>swig_xam.i</option>
+<option>library</option>
+<option>whats_new_2018</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>library-&gt;</option>
+<option>module</option>
+<option>a_double</option>
+<option>vector</option>
+<option>a_fun</option>
+<option>sparse</option>
+<option>error</option>
+<option>xam.m4</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>sparse-&gt;</option>
+<option>sparse_rc</option>
+<option>sparse_rcv</option>
+<option>jac_sparsity</option>
+<option>hes_sparsity</option>
+<option>sparse_jac</option>
+<option>sparse_hes</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>hes_sparsity-&gt;</option>
+<option>sparse_hes_pattern_xam.cpp</option>
+<option>sparse_hes_pattern_xam.m</option>
+<option>sparse_hes_pattern_xam.pm</option>
+<option>sparse_hes_pattern_xam.py</option>
+</select>
+</td>
+<td>sparse_hes_pattern_xam.m</td>
+<td>Headings</td>
+</tr></table><br>
+@(@\newcommand{\B}[1]{ {\bf #1} }
+\newcommand{\R}[1]{ {\rm #1} }@)@<center><b><big><big>Octave: Hessian Sparsity Patterns: Example and Test</big></big></b></center>
+<pre><tt><b><font color="#0000FF">function</font></b> ok = <b><font color="#000000">sparse_hes_pattern_xam</font></b>()
+     <i><font color="#9A1900">%</font></i>
+     <i><font color="#9A1900">% load the Cppad Swig library</font></i>
+     m_cppad
+     <i><font color="#9A1900">%</font></i>
+     <i><font color="#9A1900">% initialize return variable</font></i>
+     ok = true;
+     <i><font color="#9A1900">% -----------------------------------------------------------------------</font></i>
+     <i><font color="#9A1900">% number of dependent and independent variables</font></i>
+     n = 3;
+     <i><font color="#9A1900">%</font></i>
+     <i><font color="#9A1900">% create the independent variables ax</font></i>
+     x = m_cppad.<b><font color="#000000">vec_double</font></b>(n);
+     <b><font color="#0000FF">for</font></b> i = [ 0 :(n -1) ]
+          <b><font color="#000000">x</font></b>(i) = i + 2.0;
+     <b><font color="#0000FF">end</font></b>
+     ax = m_cppad.<b><font color="#000000">independent</font></b>(x);
+     <i><font color="#9A1900">%</font></i>
+     <i><font color="#9A1900">% create dependent variables ay with ay[i] = ax[j] * ax[i]</font></i>
+     <i><font color="#9A1900">% where i = mod(j + 1, n)</font></i>
+     ay = m_cppad.<b><font color="#000000">vec_a_double</font></b>(n);
+     <b><font color="#0000FF">for</font></b> j = [ 0 :(n -1) ]
+          i = j+1;
+          <b><font color="#0000FF">if</font></b>( i &gt;= n  )
+               i = i - n;
+          <b><font color="#0000FF">end</font></b>
+          ay_i = <b><font color="#000000">ax</font></b>(i) * <b><font color="#000000">ax</font></b>(j);
+          <b><font color="#000000">ay</font></b>(i) = ay_i;
+     <b><font color="#0000FF">end</font></b>
+     <i><font color="#9A1900">%</font></i>
+     <i><font color="#9A1900">% define af corresponding to f(x)</font></i>
+     af = m_cppad.<b><font color="#000000">a_fun</font></b>(ax, ay);
+     <i><font color="#9A1900">%</font></i>
+     <i><font color="#9A1900">% Set select_d (domain) to all true, initial select_r (range) to all false</font></i>
+     select_d = m_cppad.<b><font color="#000000">vec_bool</font></b>(n);
+     select_r = m_cppad.<b><font color="#000000">vec_bool</font></b>(n);
+     <b><font color="#0000FF">for</font></b> i = [ 0 :(n-1) ]
+          <b><font color="#000000">select_d</font></b>(i) = true;
+          <b><font color="#000000">select_r</font></b>(i) = false;
+     <b><font color="#0000FF">end</font></b>
+     <i><font color="#9A1900">%</font></i>
+     <i><font color="#9A1900">% only select component 0 of the range function</font></i>
+     <i><font color="#9A1900">% f_0 (x) = x_0 * x_{n-1}</font></i>
+     <b><font color="#000000">select_r</font></b>(0) = true;
+     <i><font color="#9A1900">%</font></i>
+     <i><font color="#9A1900">% loop over forward and reverse mode</font></i>
+     <b><font color="#0000FF">for</font></b> mode = [ 0 :(2-1) ]
+          pat_out = m_cppad.<b><font color="#000000">sparse_rc</font></b>();
+          <b><font color="#0000FF">if</font></b>( mode == 0  )
+               af.<b><font color="#000000">for_hes_sparsity</font></b>(select_d, select_r, pat_out);
+          <b><font color="#0000FF">end</font></b>
+          <b><font color="#0000FF">if</font></b>( mode == 1  )
+               af.<b><font color="#000000">rev_hes_sparsity</font></b>(select_d, select_r, pat_out);
+          <b><font color="#0000FF">end</font></b>
+          <i><font color="#9A1900">%</font></i>
+          <i><font color="#9A1900">% check that result is sparsity pattern for Hessian of f_0 (x)</font></i>
+          ok = ok &amp;&amp; pat_out.<b><font color="#000000">nnz</font></b>() == 2 ;
+          row = pat_out.<b><font color="#000000">row</font></b>();
+          col = pat_out.<b><font color="#000000">col</font></b>();
+          <b><font color="#0000FF">for</font></b> k = [ 0 :(2-1) ]
+               r = <b><font color="#000000">row</font></b>(k);
+               c = <b><font color="#000000">col</font></b>(k);
+               <b><font color="#0000FF">if</font></b>( r &lt;= c  )
+                    ok = ok &amp;&amp; r == 0;
+                    ok = ok &amp;&amp; c == n-1;
+               <b><font color="#0000FF">end</font></b>
+               <b><font color="#0000FF">if</font></b>( r &gt;= c  )
+                    ok = ok &amp;&amp; r == n-1;
+                    ok = ok &amp;&amp; c == 0;
+               <b><font color="#0000FF">end</font></b>
+          <b><font color="#0000FF">end</font></b>
+     <b><font color="#0000FF">end</font></b>
+     <i><font color="#9A1900">%</font></i>
+     <b><font color="#0000FF">return</font></b>;
+<b><font color="#0000FF">end</font></b></tt></pre>
+
+<hr>Input File: build/lib/example/octave/sparse_hes_pattern_xam.m
+
+</body>
+</html>

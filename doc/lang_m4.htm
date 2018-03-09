@@ -1,0 +1,541 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Language Specific M4 Macros</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Language Specific M4 Macros">
+<meta name="keywords" id="keywords" content=" language specific m4 macros purpose convention no arguments ext_ true_ false_ and_ not_ end_ c_ eos_ try_ catch_ eof_ module_ one argument constructor macro with that are not statements var_ member_ stringequal_ assignment newvar_ assign_ andassign_ vector operations vecset_ vecget_ function beginboolfun_ return_ control flow for_ if_ ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_lang_m4_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/cppad_swig" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="xam.m4.htm" target="_top">Prev</a>
+</td><td><a href="xam_file_name.m4.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>cppad_swig</option>
+<option>library</option>
+<option>xam.m4</option>
+<option>lang_m4</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>cppad_swig-&gt;</option>
+<option>testing</option>
+<option>swig_xam.i</option>
+<option>library</option>
+<option>whats_new_2018</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>library-&gt;</option>
+<option>module</option>
+<option>a_double</option>
+<option>vector</option>
+<option>a_fun</option>
+<option>sparse</option>
+<option>error</option>
+<option>xam.m4</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>xam.m4-&gt;</option>
+<option>lang_m4</option>
+<option>xam_file_name.m4</option>
+<option>header.m4</option>
+<option>lang_name.m4</option>
+<option>omhelp.m4</option>
+</select>
+</td>
+<td>lang_m4</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Purpose</option>
+<option>Convention</option>
+<option>No Arguments</option>
+<option>---..Ext_</option>
+<option>---..True_</option>
+<option>---..False_</option>
+<option>---..And_</option>
+<option>---..Not_</option>
+<option>---..End_</option>
+<option>---..C_</option>
+<option>---..Eos_</option>
+<option>---..Try_</option>
+<option>---..Catch_</option>
+<option>---..Eof_</option>
+<option>Module_</option>
+<option>---..No Arguments</option>
+<option>---..One Argument</option>
+<option>---..Constructor</option>
+<option>Macro With Arguments That are Not Statements</option>
+<option>---..Var_</option>
+<option>---..Member_</option>
+<option>---..StringEqual_</option>
+<option>Assignment Statements</option>
+<option>---..NewVar_</option>
+<option>---..Assign_</option>
+<option>---..AndAssign_</option>
+<option>Vector Operations</option>
+<option>---..VecSet_</option>
+<option>---..VecGet_</option>
+<option>Function Statements</option>
+<option>---..BeginBoolFun_</option>
+<option>---..Return_</option>
+<option>Control Flow Statements</option>
+<option>---..For_</option>
+<option>---..If_</option>
+</select>
+</td>
+</tr></table><br>
+@(@\newcommand{\B}[1]{ {\bf #1} }
+\newcommand{\R}[1]{ {\rm #1} }@)@
+
+
+
+
+<center><b><big><big>Language Specific M4 Macros</big></big></b></center>
+<br>
+<b><big><a name="Purpose" id="Purpose">Purpose</a></big></b>
+<br>
+For each scripting language, Python, Octave, and Perl,
+there is corresponding m4 file
+python.m4, octave.m4, and perl.m4.
+These files define macros that convert the *.xam files
+to examples (and tests) in the corresponding language.
+This is the specifications for the macros in an arbitrary scripting language.
+
+<br>
+<br>
+<b><big><a name="Convention" id="Convention">Convention</a></big></b>
+<br>
+All macro names are an upper case letter,
+following by lower and upper case letters,
+and end with an under-bar.
+
+
+<br>
+<br>
+<b><big><a name="No Arguments" id="No Arguments">No Arguments</a></big></b>
+
+
+<br>
+<br>
+<b><a name="No Arguments.Ext_" id="No Arguments.Ext_">Ext_</a></b>
+<br>
+This is the file extension (without the <code><font color="blue">.</font></code>)
+used for scripting language; e.g., <code><font color="blue">py</font></code> for Python files.
+
+<br>
+<br>
+<b><a name="No Arguments.True_" id="No Arguments.True_">True_</a></b>
+<br>
+This is a constant representing the value true in the scripting language;
+e.g. <code><font color="blue">True</font></code> for Python.
+
+<br>
+<br>
+<b><a name="No Arguments.False_" id="No Arguments.False_">False_</a></b>
+<br>
+This is a constant representing the value false in the scripting language;
+e.g. <code><font color="blue">False</font></code> for Python.
+
+<br>
+<br>
+<b><a name="No Arguments.And_" id="No Arguments.And_">And_</a></b>
+<br>
+This is the logical binary and operator; e.g. <code><font color="blue">and</font></code> for Python.
+
+<br>
+<br>
+<b><a name="No Arguments.Not_" id="No Arguments.Not_">Not_</a></b>
+<br>
+This is the logical unary operator not; e.g. <code><font color="blue">!</font></code> for Perl.
+
+<br>
+<br>
+<b><a name="No Arguments.End_" id="No Arguments.End_">End_</a></b>
+<br>
+This is the text that goes on a line, by itself, to terminate a block
+of code; e.g., <code><font color="blue">end</font></code> for Octave.
+Note that in Python, the comment symbol <code><font color="blue">#</font></code> is used.
+This suffices because the level of indentation (by tabs)
+is reduced by one when the block terminates.
+
+<br>
+<br>
+<b><a name="No Arguments.C_" id="No Arguments.C_">C_</a></b>
+<br>
+This is the text that starts a comment that lasts for the current line;
+e.g., <code><font color="blue">#</font></code> for Python.
+
+<br>
+<br>
+<b><a name="No Arguments.Eos_" id="No Arguments.Eos_">Eos_</a></b>
+<br>
+All statements will be following by a newline in the input text.
+This macro provides any characters, beside the newline, that are required to
+terminate a statement. For example, in C++ it could be <code><font color="blue">;</font></code>.
+Note that this text use automatically included by macros that
+are documented as statements.
+
+<br>
+<br>
+<b><a name="No Arguments.Try_" id="No Arguments.Try_">Try_</a></b>
+<br>
+This text starts an exception try block.
+It is assumed that the block will be terminated by a <code><font color="blue">Catch_</font></code>.
+
+<br>
+<br>
+<b><a name="No Arguments.Catch_" id="No Arguments.Catch_">Catch_</a></b>
+<br>
+This text terminates a try block and starts an exception catch block.
+It is assumed that the block will be terminated by an <code><font color="blue">End_</font></code>.
+
+<br>
+<br>
+<b><a name="No Arguments.Eof_" id="No Arguments.Eof_">Eof_</a></b>
+<br>
+This is extra text that should be added at the end of file.
+(For some strange reason, perl requires a true value at the end of
+each 
+<code><i><font color="black"><span style='white-space: nowrap'>*</span></font></i><font color="blue"><span style='white-space: nowrap'>.pm</span></font></code>
+ file.)
+
+
+<br>
+<br>
+<b><big><a name="Module_" id="Module_">Module_</a></big></b>
+
+
+<br>
+<br>
+<b><a name="Module_.No Arguments" id="Module_.No Arguments">No Arguments</a></b>
+<br>
+If <code><font color="blue">Module_</font></code> has no arguments,
+it is the Cppad Swig <a href="module.htm#Module Name" target="_top"><span style='white-space: nowrap'>module&nbsp;name</span></a>
+
+for scripting language; e.g., <code><font color="blue">py_cppad</font></code> for Python.
+
+<br>
+<br>
+<b><a name="Module_.One Argument" id="Module_.One Argument">One Argument</a></b>
+<br>
+The text corresponding to
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Module_(</span></font><i><font color="black"><span style='white-space: nowrap'>name</span></font></i><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>
+references the specified name in the swig module.
+For example, in Octave it might be
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m_cppad.</span></font><i><font color="black"><span style='white-space: nowrap'>name</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+<br>
+<b><a name="Module_.Constructor" id="Module_.Constructor">Constructor</a></b>
+<br>
+The text corresponding to
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ModuleCtor_(</span></font><i><font color="black"><span style='white-space: nowrap'>name</span></font></i><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>
+references the specified constructor in the swig module.
+For example, in Octave it might be
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m_cppad.</span></font><i><font color="black"><span style='white-space: nowrap'>name</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+while in Perl it could be
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;pm_cppad::</span></font><i><font color="black"><span style='white-space: nowrap'>name</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+<br>
+<b><big><a name="Macro With Arguments That are Not Statements" id="Macro With Arguments That are Not Statements">Macro With Arguments That are Not Statements</a></big></b>
+
+
+<br>
+<br>
+<b><a name="Macro With Arguments That are Not Statements.Var_" id="Macro With Arguments That are Not Statements.Var_">Var_</a></b>
+<br>
+The text corresponding to
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Var_(</span></font><i><font color="black"><span style='white-space: nowrap'>variable</span></font></i><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>
+retrieves the value of the specified variable.
+For example, in Python it could be 
+<code><i><font color="black"><span style='white-space: nowrap'>variable</span></font></i></code>
+
+while in Perl it could be 
+<code><font color="blue"><span style='white-space: nowrap'>$</span></font><i><font color="black"><span style='white-space: nowrap'>variable</span></font></i></code>
+.
+Note that this text is automatically included for macro arguments
+that are documented as being a 
+<code><i><font color="black"><span style='white-space: nowrap'>variable</span></font></i></code>
+; e.g.,
+seen <code><font color="blue">Member_</font></code> below.
+
+<br>
+<br>
+<b><a name="Macro With Arguments That are Not Statements.Member_" id="Macro With Arguments That are Not Statements.Member_">Member_</a></b>
+<br>
+The text corresponding to
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Member_(</span></font><i><font color="black"><span style='white-space: nowrap'>variable</span></font></i><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>name</span></font></i><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>
+references the specified member function or data
+in the context of the specified variable.
+For example, in Perl it might be
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$</span></font><i><font color="black"><span style='white-space: nowrap'>variable</span></font></i><font color="blue"><span style='white-space: nowrap'>-&gt;</span></font><i><font color="black"><span style='white-space: nowrap'>name</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+<br>
+<b><a name="Macro With Arguments That are Not Statements.StringEqual_" id="Macro With Arguments That are Not Statements.StringEqual_">StringEqual_</a></b>
+<br>
+The text corresponding to
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;StringEqual_(</span></font><i><font color="black"><span style='white-space: nowrap'>left</span></font></i><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>right</span></font></i><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>
+results in true (false), if the string 
+<code><i><font color="black"><span style='white-space: nowrap'>left</span></font></i></code>
+
+is equal (not equal) to the string 
+<code><i><font color="black"><span style='white-space: nowrap'>right</span></font></i></code>
+.
+(Note that in C++, left operand must be a
+<code><font color="blue">std::string</font></code> while the right might be a <code><font color="blue">char*</font></code>.)
+
+
+<br>
+<br>
+<b><big><a name="Assignment Statements" id="Assignment Statements">Assignment Statements</a></big></b>
+
+
+<br>
+<br>
+<b><a name="Assignment Statements.NewVar_" id="Assignment Statements.NewVar_">NewVar_</a></b>
+<br>
+The text corresponding to
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NewVar_(</span></font><i><font color="black"><span style='white-space: nowrap'>type</span></font></i><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>variable</span></font></i><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>value</span></font></i><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>
+declares the new specified variable with the specified type
+and assigns it the specified value.
+For example, in Octave it could be
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>variable</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>value</span></font></i><font color="blue"><span style='white-space: nowrap'>;<br>
+</span></font></code>
+Note the semi-colon at the end which suppressed printing the value
+(in the Octave language).
+In C++, it could be
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>type</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>variable</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>value</span></font></i><font color="blue"><span style='white-space: nowrap'>;<br>
+</span></font></code>
+<br>
+<b><a name="Assignment Statements.Assign_" id="Assignment Statements.Assign_">Assign_</a></b>
+<br>
+The text corresponding to
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assign_(</span></font><i><font color="black"><span style='white-space: nowrap'>variable</span></font></i><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>value</span></font></i><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>
+assigns the specified value to an existing variable.
+For example, in Python it could be
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>variable</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>value</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+<br>
+<b><a name="Assignment Statements.AndAssign_" id="Assignment Statements.AndAssign_">AndAssign_</a></b>
+<br>
+The text corresponding to
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AndAssign_(</span></font><i><font color="black"><span style='white-space: nowrap'>variable</span></font></i><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>value</span></font></i><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>
+assigns the specified logical variable to the binary expression
+of itself and the value.
+For example, in Octave it could be
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>variable</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>variable</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;&amp;&amp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>value</span></font></i><font color="blue"><span style='white-space: nowrap'>;<br>
+</span></font></code>
+<br>
+<b><big><a name="Vector Operations" id="Vector Operations">Vector Operations</a></big></b>
+
+
+<br>
+<br>
+<b><a name="Vector Operations.VecSet_" id="Vector Operations.VecSet_">VecSet_</a></b>
+<br>
+The text corresponding to
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VecSet_(</span></font><i><font color="black"><span style='white-space: nowrap'>vector</span></font></i><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>index</span></font></i><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>value</span></font></i><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>
+sets the element with the specified index, in the specified vector, to the
+specified value.
+For example, in Python it might be
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>vector</span></font></i><font color="blue"><span style='white-space: nowrap'>[</span></font><i><font color="black"><span style='white-space: nowrap'>index</span></font></i><font color="blue"><span style='white-space: nowrap'>]&nbsp;=&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>value</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+<br>
+<b><a name="Vector Operations.VecGet_" id="Vector Operations.VecGet_">VecGet_</a></b>
+<br>
+The text corresponding to
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VecGet_(</span></font><i><font color="black"><span style='white-space: nowrap'>vector</span></font></i><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>index</span></font></i><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>
+gets the value of the element with the specified index,
+in the specified vector.
+For example, in Perl it might be
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$</span></font><i><font color="black"><span style='white-space: nowrap'>vector</span></font></i><font color="blue"><span style='white-space: nowrap'>-&gt;get(</span></font><i><font color="black"><span style='white-space: nowrap'>index</span></font></i><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>
+<br>
+<b><big><a name="Function Statements" id="Function Statements">Function Statements</a></big></b>
+
+
+<br>
+<br>
+<b><a name="Function Statements.BeginBoolFun_" id="Function Statements.BeginBoolFun_">BeginBoolFun_</a></b>
+<br>
+The text corresponding to
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BeginBoolFun_(</span></font><i><font color="black"><span style='white-space: nowrap'>return_variable</span></font></i><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>FunctionName_</span></font></i><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>
+is placed at the beginning of function that has zero arguments
+and a boolean return value.
+This must initialize 
+<code><i><font color="black"><span style='white-space: nowrap'>return_variable</span></font></i></code>
+ as true.
+For example, in Octave it might be
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>return_variable</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>FunctionName_</span></font></i><font color="blue"><span style='white-space: nowrap'>()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%&nbsp;load&nbsp;the&nbsp;Cppad&nbsp;Swig&nbsp;library<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m_cppad<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%&nbsp;initialize&nbsp;return&nbsp;value<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>return_variable</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;true;<br>
+</span></font></code>
+Note that this begins a block of code that will be terminated
+by a corresponding <code><font color="blue">End_</font></code>.
+The argument 
+<code><i><font color="black"><span style='white-space: nowrap'>FunctionName_</span></font></i></code>
+ should be related to
+the xam input file as follows:
+<a href="xam_file_name.m4.htm#FunctionName_" target="_top"><span style='white-space: nowrap'>FunctionName_</span></a>
+.
+
+
+<br>
+<br>
+<b><a name="Function Statements.Return_" id="Function Statements.Return_">Return_</a></b>
+<br>
+The text corresponding to
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return_(</span></font><i><font color="black"><span style='white-space: nowrap'>return_variable</span></font></i><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>
+terminates the current function block with the specified return value
+a matching <a href="lang_m4.htm#No Arguments.End_" target="_top"><span style='white-space: nowrap'>End_</span></a>
+.
+For example, in Python it might be
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>return_variable</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+<br>
+<b><big><a name="Control Flow Statements" id="Control Flow Statements">Control Flow Statements</a></big></b>
+
+
+<br>
+<br>
+<b><a name="Control Flow Statements.For_" id="Control Flow Statements.For_">For_</a></b>
+<br>
+The text corresponding to
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For_(</span></font><i><font color="black"><span style='white-space: nowrap'>variable</span></font></i><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>upper</span></font></i><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>
+starts a for loop the specified integer index variable.
+The initial value of the variable is zero.
+The variable increases by one each time through the loop.
+The value of the index the last time through the loop is 
+<code><i><font color="black"><span style='white-space: nowrap'>upper</span></font></i><font color="blue"><span style='white-space: nowrap'>-1</span></font></code>
+.
+The block inside the loop is terminated by a matching
+<a href="lang_m4.htm#No Arguments.End_" target="_top"><span style='white-space: nowrap'>End_</span></a>
+.
+
+<br>
+<br>
+<b><a name="Control Flow Statements.If_" id="Control Flow Statements.If_">If_</a></b>
+<br>
+The text corresponding to
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If_(</span></font><i><font color="black"><span style='white-space: nowrap'>expression</span></font></i><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>
+starts an <code><font color="blue">if</font></code> block that is executed when the expression is true.
+The block is terminated by a matching
+<a href="lang_m4.htm#No Arguments.End_" target="_top"><span style='white-space: nowrap'>End_</span></a>
+.
+
+
+<hr>Input File: lib/xam/lang_m4.omh
+
+</body>
+</html>

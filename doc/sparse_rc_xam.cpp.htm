@@ -1,0 +1,168 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>C++: Sparsity Patterns: Example and Test</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="C++: Sparsity Patterns: Example and Test">
+<meta name="keywords" id="keywords" content=" c++: sparsity patterns: example test ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_sparse_rc_xam.cpp_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/cppad_swig" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="sparse_rc.htm" target="_top">Prev</a>
+</td><td><a href="sparse_rc_xam.m.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>cppad_swig</option>
+<option>library</option>
+<option>sparse</option>
+<option>sparse_rc</option>
+<option>sparse_rc_xam.cpp</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down4(this)'>
+<option>cppad_swig-&gt;</option>
+<option>testing</option>
+<option>swig_xam.i</option>
+<option>library</option>
+<option>whats_new_2018</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>library-&gt;</option>
+<option>module</option>
+<option>a_double</option>
+<option>vector</option>
+<option>a_fun</option>
+<option>sparse</option>
+<option>error</option>
+<option>xam.m4</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>sparse-&gt;</option>
+<option>sparse_rc</option>
+<option>sparse_rcv</option>
+<option>jac_sparsity</option>
+<option>hes_sparsity</option>
+<option>sparse_jac</option>
+<option>sparse_hes</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>sparse_rc-&gt;</option>
+<option>sparse_rc_xam.cpp</option>
+<option>sparse_rc_xam.m</option>
+<option>sparse_rc_xam.pm</option>
+<option>sparse_rc_xam.py</option>
+</select>
+</td>
+<td>sparse_rc_xam.cpp</td>
+<td>Headings</td>
+</tr></table><br>
+@(@\newcommand{\B}[1]{ {\bf #1} }
+\newcommand{\R}[1]{ {\rm #1} }@)@
+
+<center><b><big><big>C++: Sparsity Patterns: Example and Test</big></big></b></center>
+<pre><tt><b><font color="#000080"># include</font></b> <font color="#FF0000">&lt;cstdio&gt;</font>
+<b><font color="#000080"># include</font></b> <font color="#FF0000">&lt;string&gt;</font>
+<b><font color="#000080"># include</font></b> <font color="#FF0000">&lt;cppad/swig/cppad_swig.hpp&gt;</font>
+
+<font color="#009900">bool</font> <b><font color="#000000">sparse_rc_xam</font></b><font color="#990000">(</font><font color="#009900">void</font><font color="#990000">)</font> <font color="#FF0000">{</font>
+     <b><font color="#0000FF">using</font></b> cppad_swig<font color="#990000">::</font>a_double<font color="#990000">;</font>
+     <b><font color="#0000FF">using</font></b> cppad_swig<font color="#990000">::</font>vec_bool<font color="#990000">;</font>
+     <b><font color="#0000FF">using</font></b> cppad_swig<font color="#990000">::</font>vec_int<font color="#990000">;</font>
+     <b><font color="#0000FF">using</font></b> cppad_swig<font color="#990000">::</font>vec_double<font color="#990000">;</font>
+     <b><font color="#0000FF">using</font></b> cppad_swig<font color="#990000">::</font>vec_a_double<font color="#990000">;</font>
+     <b><font color="#0000FF">using</font></b> cppad_swig<font color="#990000">::</font>a_fun<font color="#990000">;</font>
+     <b><font color="#0000FF">using</font></b> cppad_swig<font color="#990000">::</font>sparse_rc<font color="#990000">;</font>
+     <b><font color="#0000FF">using</font></b> cppad_swig<font color="#990000">::</font>sparse_rcv<font color="#990000">;</font>
+     <b><font color="#0000FF">using</font></b> cppad_swig<font color="#990000">::</font>sparse_jac_work<font color="#990000">;</font>
+     <b><font color="#0000FF">using</font></b> cppad_swig<font color="#990000">::</font>sparse_hes_work<font color="#990000">;</font>
+     <b><font color="#0000FF">using</font></b> std<font color="#990000">::</font>string<font color="#990000">;</font>
+     <i><font color="#9A1900">//</font></i>
+     <i><font color="#9A1900">// initialize return variable</font></i>
+     <font color="#009900">bool</font> ok <font color="#990000">=</font> <b><font color="#0000FF">true</font></b><font color="#990000">;</font>
+     <i><font color="#9A1900">//------------------------------------------------------------------------</font></i>
+     <i><font color="#9A1900">//</font></i>
+     <i><font color="#9A1900">// create a sparsity pattern</font></i>
+     <font color="#008080">sparse_rc</font> pattern <font color="#990000">=</font> cppad_swig<font color="#990000">::</font><b><font color="#000000">sparse_rc</font></b><font color="#990000">();</font>
+     <i><font color="#9A1900">//</font></i>
+     <font color="#009900">int</font> nr <font color="#990000">=</font> <font color="#993399">6</font><font color="#990000">;</font>
+     <font color="#009900">int</font> nc <font color="#990000">=</font> <font color="#993399">5</font><font color="#990000">;</font>
+     <font color="#009900">int</font> nnz <font color="#990000">=</font> <font color="#993399">4</font><font color="#990000">;</font>
+     <i><font color="#9A1900">//</font></i>
+     <i><font color="#9A1900">// resize</font></i>
+     pattern<font color="#990000">.</font><b><font color="#000000">resize</font></b><font color="#990000">(</font>nr<font color="#990000">,</font> nc<font color="#990000">,</font> nnz<font color="#990000">);</font>
+     <i><font color="#9A1900">//</font></i>
+     ok <font color="#990000">=</font> ok <font color="#990000">&amp;&amp;</font> pattern<font color="#990000">.</font><b><font color="#000000">nr</font></b><font color="#990000">()</font>  <font color="#990000">==</font> nr <font color="#990000">;</font>
+     ok <font color="#990000">=</font> ok <font color="#990000">&amp;&amp;</font> pattern<font color="#990000">.</font><b><font color="#000000">nc</font></b><font color="#990000">()</font>  <font color="#990000">==</font> nc <font color="#990000">;</font>
+     ok <font color="#990000">=</font> ok <font color="#990000">&amp;&amp;</font> pattern<font color="#990000">.</font><b><font color="#000000">nnz</font></b><font color="#990000">()</font> <font color="#990000">==</font> nnz <font color="#990000">;</font>
+     <i><font color="#9A1900">//</font></i>
+     <i><font color="#9A1900">// indices corresponding to upper-diagonal</font></i>
+     <b><font color="#0000FF">for</font></b><font color="#990000">(</font><font color="#009900">int</font> k <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> k <font color="#990000">&lt;</font> nnz<font color="#990000">;</font> k<font color="#990000">++)</font> <font color="#FF0000">{</font>
+          pattern<font color="#990000">.</font><b><font color="#000000">put</font></b><font color="#990000">(</font>k<font color="#990000">,</font> k<font color="#990000">,</font> k<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">);</font>
+     <font color="#FF0000">}</font>
+     <i><font color="#9A1900">//</font></i>
+     <i><font color="#9A1900">// row and column indices</font></i>
+     <font color="#008080">vec_int</font> row <font color="#990000">=</font> pattern<font color="#990000">.</font><b><font color="#000000">row</font></b><font color="#990000">();</font>
+     <font color="#008080">vec_int</font> col <font color="#990000">=</font> pattern<font color="#990000">.</font><b><font color="#000000">col</font></b><font color="#990000">();</font>
+     <i><font color="#9A1900">//</font></i>
+     <i><font color="#9A1900">// check row and column indices</font></i>
+     <b><font color="#0000FF">for</font></b><font color="#990000">(</font><font color="#009900">int</font> k <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> k <font color="#990000">&lt;</font> nnz<font color="#990000">;</font> k<font color="#990000">++)</font> <font color="#FF0000">{</font>
+          ok <font color="#990000">=</font> ok <font color="#990000">&amp;&amp;</font> row<font color="#990000">[</font>k<font color="#990000">]</font> <font color="#990000">==</font> k<font color="#990000">;</font>
+          ok <font color="#990000">=</font> ok <font color="#990000">&amp;&amp;</font> col<font color="#990000">[</font>k<font color="#990000">]</font> <font color="#990000">==</font> k<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">;</font>
+     <font color="#FF0000">}</font>
+     <i><font color="#9A1900">//</font></i>
+     <i><font color="#9A1900">// For this case, row_major and col_major order are same as original order</font></i>
+     <font color="#008080">vec_int</font> row_major <font color="#990000">=</font> pattern<font color="#990000">.</font><b><font color="#000000">row_major</font></b><font color="#990000">();</font>
+     <font color="#008080">vec_int</font> col_major <font color="#990000">=</font> pattern<font color="#990000">.</font><b><font color="#000000">col_major</font></b><font color="#990000">();</font>
+     <b><font color="#0000FF">for</font></b><font color="#990000">(</font><font color="#009900">int</font> k <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> k <font color="#990000">&lt;</font> nnz<font color="#990000">;</font> k<font color="#990000">++)</font> <font color="#FF0000">{</font>
+          ok <font color="#990000">=</font> ok <font color="#990000">&amp;&amp;</font> row_major<font color="#990000">[</font>k<font color="#990000">]</font> <font color="#990000">==</font> k<font color="#990000">;</font>
+          ok <font color="#990000">=</font> ok <font color="#990000">&amp;&amp;</font> col_major<font color="#990000">[</font>k<font color="#990000">]</font> <font color="#990000">==</font> k<font color="#990000">;</font>
+     <font color="#FF0000">}</font>
+     <i><font color="#9A1900">//</font></i>
+     <b><font color="#0000FF">return</font></b><font color="#990000">(</font> ok <font color="#990000">);</font>
+<font color="#FF0000">}</font></tt></pre>
+
+<hr>Input File: build/lib/example/cplusplus/sparse_rc_xam.cpp
+
+</body>
+</html>

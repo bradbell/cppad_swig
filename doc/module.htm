@@ -1,0 +1,139 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Cppad Swig Modules and Languages</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Cppad Swig Modules and Languages">
+<meta name="keywords" id="keywords" content=" cppad swig modules languages language module name module_ref ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_module_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/cppad_swig" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="library.htm" target="_top">Prev</a>
+</td><td><a href="a_double.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>cppad_swig</option>
+<option>library</option>
+<option>module</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>cppad_swig-&gt;</option>
+<option>testing</option>
+<option>swig_xam.i</option>
+<option>library</option>
+<option>whats_new_2018</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>library-&gt;</option>
+<option>module</option>
+<option>a_double</option>
+<option>vector</option>
+<option>a_fun</option>
+<option>sparse</option>
+<option>error</option>
+<option>xam.m4</option>
+</select>
+</td>
+<td>module</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Language</option>
+<option>Module Name</option>
+<option>module_ref</option>
+</select>
+</td>
+</tr></table><br>
+@(@\newcommand{\B}[1]{ {\bf #1} }
+\newcommand{\R}[1]{ {\rm #1} }@)@<center><b><big><big>Cppad Swig Modules and Languages</big></big></b></center>
+<br>
+<b><big><a name="Language" id="Language">Language</a></big></b>
+<br>
+Is a source code language.
+Note that in C++, the library functions are accessed directly,
+while in the other languages they are accessed through the
+corresponding Swig module.
+
+<br>
+<br>
+<b><big><a name="Module Name" id="Module Name">Module Name</a></big></b>
+<br>
+This is the name of the Swig module.
+In C++ this is actually a <code><font color="blue">namespace</font></code>, instead of a
+Swig module.
+
+<br>
+<br>
+<b><big><a name="module_ref" id="module_ref">module_ref</a></big></b>
+<br>
+We use 
+<code><i><font color="black"><span style='white-space: nowrap'>module_ref</span></font></i></code>
+ to denote the source code used to reference
+the Cppad Swig module for a particular language.
+It has the following value (depending on the language):
+<table><tr><td align='left'  valign='top'>
+
+Language     </td><td align='left'  valign='top'>
+ Module Name        </td><td align='left'  valign='top'>
+ module_ref            </td></tr><tr><td align='left'  valign='top'>
+
+C++          </td><td align='left'  valign='top'>
+ <code><font color="blue">cppad_swig</font></code> </td><td align='left'  valign='top'>
+ <code><font color="blue">cppad_swig::</font></code>  </td></tr><tr><td align='left'  valign='top'>
+
+Octave       </td><td align='left'  valign='top'>
+ <code><font color="blue">m_cppad</font></code>    </td><td align='left'  valign='top'>
+ <code><font color="blue">m_cppad.</font></code>      </td></tr><tr><td align='left'  valign='top'>
+
+Perl         </td><td align='left'  valign='top'>
+ <code><font color="blue">pm_cppad</font></code>   </td><td align='left'  valign='top'>
+ <code><font color="blue">pm_cppad::</font></code>    </td></tr><tr><td align='left'  valign='top'>
+
+Python       </td><td align='left'  valign='top'>
+ <code><font color="blue">py_cppad</font></code>   </td><td align='left'  valign='top'>
+ <code><font color="blue">m_cppad.</font></code>
+</td></tr>
+</table>
+
+<hr>Input File: lib/cppad_swig.i
+
+</body>
+</html>

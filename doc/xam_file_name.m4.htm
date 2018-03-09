@@ -1,0 +1,151 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Function and File Naming</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Function and File Naming">
+<meta name="keywords" id="keywords" content=" function file naming syntax xam_file_name functionname_ lang_file_name assumptions ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_xam_file_name.m4_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/cppad_swig" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="lang_m4.htm" target="_top">Prev</a>
+</td><td><a href="header.m4.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>cppad_swig</option>
+<option>library</option>
+<option>xam.m4</option>
+<option>xam_file_name.m4</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>cppad_swig-&gt;</option>
+<option>testing</option>
+<option>swig_xam.i</option>
+<option>library</option>
+<option>whats_new_2018</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>library-&gt;</option>
+<option>module</option>
+<option>a_double</option>
+<option>vector</option>
+<option>a_fun</option>
+<option>sparse</option>
+<option>error</option>
+<option>xam.m4</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>xam.m4-&gt;</option>
+<option>lang_m4</option>
+<option>xam_file_name.m4</option>
+<option>header.m4</option>
+<option>lang_name.m4</option>
+<option>omhelp.m4</option>
+</select>
+</td>
+<td>xam_file_name.m4</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>xam_file_name</option>
+<option>FunctionName_</option>
+<option>lang_file_name</option>
+<option>Assumptions</option>
+</select>
+</td>
+</tr></table><br>
+@(@\newcommand{\B}[1]{ {\bf #1} }
+\newcommand{\R}[1]{ {\rm #1} }@)@ 
+
+
+<center><b><big><big>Function and File Naming</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>LangFileName_(</span></font><i><font color="black"><span style='white-space: nowrap'>xam_file_name</span></font></i><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>
+
+<code><font color="blue"><span style='white-space: nowrap'>FunctionName__(</span></font><i><font color="black"><span style='white-space: nowrap'>xam_file_name</span></font></i><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>
+<br>
+<b><big><a name="xam_file_name" id="xam_file_name">xam_file_name</a></big></b>
+<br>
+Is the name of an 
+<code><i><font color="black"><span style='white-space: nowrap'>*</span></font></i><font color="blue"><span style='white-space: nowrap'>.xam</span></font></code>
+ file relative to the
+<code><font color="blue">lib/xam</font></code> directory.
+
+<br>
+<br>
+<b><big><a name="FunctionName_" id="FunctionName_">FunctionName_</a></big></b>
+<br>
+The output value of <code><font color="blue">FunctionName__</font></code> has all the forward slash
+<code><font color="blue">/</font></code> characters converted to under bar <code><font color="blue">_</font></code> characters
+and the file extension <code><font color="blue">.xam</font></code> removed.
+
+<br>
+<br>
+<b><big><a name="lang_file_name" id="lang_file_name">lang_file_name</a></big></b>
+<br>
+The output value of <code><font color="blue">LangFileName_</font></code> has all the forward slash
+<code><font color="blue">/</font></code> characters converted to under bar <code><font color="blue">_</font></code> characters
+and the file extension <code><font color="blue">.xam</font></code> converted to
+<a href="lang_m4.htm#No Arguments.Ext_" target="_top"><span style='white-space: nowrap'>Ext_</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="Assumptions" id="Assumptions">Assumptions</a></big></b>
+<br>
+It is assumed that the following macro has been set:
+<a href="lang_m4.htm#No Arguments.Ext_" target="_top"><span style='white-space: nowrap'>Ext_</span></a>
+.
+
+
+<hr>Input File: lib/xam/xam_file_name.m4
+
+</body>
+</html>

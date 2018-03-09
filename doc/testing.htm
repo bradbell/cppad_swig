@@ -1,0 +1,197 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Running the Cppad Swig Tests</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Running the Cppad Swig Tests">
+<meta name="keywords" id="keywords" content=" running the cppad swig tests configuration available binary directory check octave cppad_swig_lib check_swig_xam check_lib ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_testing_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/cppad_swig" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="_contents.htm" target="_top">Prev</a>
+</td><td><a href="run_cmake.sh.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>cppad_swig</option>
+<option>testing</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>cppad_swig-&gt;</option>
+<option>testing</option>
+<option>swig_xam.i</option>
+<option>library</option>
+<option>whats_new_2018</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down0(this)'>
+<option>testing-&gt;</option>
+<option>run_cmake.sh</option>
+</select>
+</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Configuration</option>
+<option>Available Tests</option>
+<option>Binary Directory</option>
+<option>check</option>
+<option>Octave</option>
+<option>cppad_swig_lib</option>
+<option>check_swig_xam</option>
+<option>---..check_lib</option>
+</select>
+</td>
+</tr></table><br>
+@(@\newcommand{\B}[1]{ {\bf #1} }
+\newcommand{\R}[1]{ {\rm #1} }@)@<center><b><big><big>Running the Cppad Swig Tests</big></big></b></center>
+<br>
+<b><big><a name="Configuration" id="Configuration">Configuration</a></big></b>
+<br>
+You must first configure Cppad Swig for your system using
+<a href="run_cmake.sh.htm" target="_top"><span style='white-space: nowrap'>run_cmake.sh</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="Available Tests" id="Available Tests">Available Tests</a></big></b>
+<br>
+After <code><font color="blue">bin/run_cmake.sh</font></code>, the following command will list
+the available tests:
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;'make&nbsp;check'&nbsp;cmake_cppad_swig.log<br>
+</span></font></code>
+Note that this command must be executed in the
+<a href="cppad_swig.htm#Source Directory" target="_top"><span style='white-space: nowrap'>source&nbsp;directory</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="Binary Directory" id="Binary Directory">Binary Directory</a></big></b>
+<br>
+You can determine the 
+<code><i><font color="black"><span style='white-space: nowrap'>binary_directory</span></font></i></code>
+ with the command
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;CMAKE_BINARY_DIR&nbsp;cmake_cppad_swig.log<br>
+</span></font></code>
+This, and the previous command, assume your are in the source directory.
+The rest of the commands below assume you are in the
+Cmake binary directory.
+
+<br>
+<br>
+<b><big><a name="check" id="check">check</a></big></b>
+<br>
+The command
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;make&nbsp;check<br>
+</span></font></code>
+will run all of the available tests.
+
+<br>
+<br>
+<b><big><a name="Octave" id="Octave">Octave</a></big></b>
+<br>
+Swig versions before 3.0.12 do not support Octave-4.2; see
+<a href="https://github.com/swig/swig/pull/875" target="_top"><span style='white-space: nowrap'>issue&nbsp;875</span></a>
+.
+For this reason, you should use an older version of Octave
+(until Swig-3.0.12 or greater is available).
+On Cygwin <code><font color="blue">Octave-4.0.1-2</font></code> has problems in its
+include files that require one to add the flag
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-I/usr/include/octave-4.0.1/octave<br>
+</span></font></code>
+to the value of
+<a href="run_cmake.sh.htm#swig_cxx_flags" target="_top"><span style='white-space: nowrap'>swig_cxx_flags</span></a>
+ in <code><font color="blue">run_cmake.sh</font></code>.
+
+<br>
+<br>
+<b><big><a name="cppad_swig_lib" id="cppad_swig_lib">cppad_swig_lib</a></big></b>
+<br>
+On some systems, the following dynamically linked library may not be found:
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>binary_directory</span></font></i><font color="blue"><span style='white-space: nowrap'>/lib/libcppad_swig_lib.</span></font><i><font color="black"><span style='white-space: nowrap'>*</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+Depending on your system,
+you may be able to use one of the following commands to fix this:
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PATH=&quot;</span></font><i><font color="black"><span style='white-space: nowrap'>binary_directory</span></font></i><font color="blue"><span style='white-space: nowrap'>/lib:$PATH&quot;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LD_LIBRARY_PATH=&quot;</span></font><i><font color="black"><span style='white-space: nowrap'>binary_directory</span></font></i><font color="blue"><span style='white-space: nowrap'>/lib:$LD_LIBRARY_PATH&quot;<br>
+</span></font></code>
+<br>
+<b><big><a name="check_swig_xam" id="check_swig_xam">check_swig_xam</a></big></b>
+<br>
+For 
+<code><i><font color="black"><span style='white-space: nowrap'>lang</span></font></i></code>
+ equal
+<code><font color="blue">cplusplus</font></code>, <code><font color="blue">octave</font></code>, <code><font color="blue">perl</font></code>, <code><font color="blue">python</font></code>,
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;make&nbsp;check_swig_xam_</span></font><i><font color="black"><span style='white-space: nowrap'>lang</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+runs a simple test of Swig, for the particular language, on your system.
+
+<br>
+<br>
+<b><a name="check_swig_xam.check_lib" id="check_swig_xam.check_lib">check_lib</a></b>
+<br>
+For 
+<code><i><font color="black"><span style='white-space: nowrap'>lang</span></font></i></code>
+ equal
+<code><font color="blue">cplusplus</font></code>, <code><font color="blue">octave</font></code>, <code><font color="blue">perl</font></code>, <code><font color="blue">python</font></code>,
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;make&nbsp;check_lib_</span></font><i><font color="black"><span style='white-space: nowrap'>lang</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+runs a test of Cppad Swig, for the particular language, on your system.
+
+
+<hr>Input File: testing.omh
+
+</body>
+</html>

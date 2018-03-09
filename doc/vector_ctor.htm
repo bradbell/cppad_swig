@@ -1,0 +1,183 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Cppad Swig Vector Constructors</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Cppad Swig Vector Constructors">
+<meta name="keywords" id="keywords" content=" cppad swig vector constructors syntax purpose module_ref n vec_bool vec_int vec_double vec_a_double example ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_vector_ctor_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/cppad_swig" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="vector.htm" target="_top">Prev</a>
+</td><td><a href="vector_size.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>cppad_swig</option>
+<option>library</option>
+<option>vector</option>
+<option>vector_ctor</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>cppad_swig-&gt;</option>
+<option>testing</option>
+<option>swig_xam.i</option>
+<option>library</option>
+<option>whats_new_2018</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>library-&gt;</option>
+<option>module</option>
+<option>a_double</option>
+<option>vector</option>
+<option>a_fun</option>
+<option>sparse</option>
+<option>error</option>
+<option>xam.m4</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>vector-&gt;</option>
+<option>vector_ctor</option>
+<option>vector_size</option>
+<option>vector_set_get</option>
+</select>
+</td>
+<td>vector_ctor</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>Purpose</option>
+<option>module_ref</option>
+<option>n</option>
+<option>vec_bool</option>
+<option>vec_int</option>
+<option>vec_double</option>
+<option>vec_a_double</option>
+<option>Example</option>
+</select>
+</td>
+</tr></table><br>
+@(@\newcommand{\B}[1]{ {\bf #1} }
+\newcommand{\R}[1]{ {\rm #1} }@)@<center><b><big><big>Cppad Swig Vector Constructors</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><i><font color="black"><span style='white-space: nowrap'>bv</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;&nbsp;=&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>module_ref</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;vec_bool(</span></font><i><font color="black"><span style='white-space: nowrap'>n</span></font></i><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>
+
+<code><i><font color="black"><span style='white-space: nowrap'>iv</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;&nbsp;=&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>module_ref</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;vec_int(</span></font><i><font color="black"><span style='white-space: nowrap'>n</span></font></i><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>
+
+<code><i><font color="black"><span style='white-space: nowrap'>dv</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;&nbsp;=&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>module_ref</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;vec_double(</span></font><i><font color="black"><span style='white-space: nowrap'>n</span></font></i><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>
+
+<code><i><font color="black"><span style='white-space: nowrap'>av</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>module_ref</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;vec_a_double(</span></font><i><font color="black"><span style='white-space: nowrap'>n</span></font></i><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>
+<br>
+<b><big><a name="Purpose" id="Purpose">Purpose</a></big></b>
+<br>
+Creates a vector with 
+<code><i><font color="black"><span style='white-space: nowrap'>n</span></font></i></code>
+ elements.
+
+<br>
+<br>
+<b><big><a name="module_ref" id="module_ref">module_ref</a></big></b>
+<br>
+This is the <a href="module.htm#module_ref" target="_top"><span style='white-space: nowrap'>module&nbsp;reference</span></a>
+
+for the particular language.
+
+<br>
+<br>
+<b><big><a name="n" id="n">n</a></big></b>
+<br>
+The argument 
+<code><i><font color="black"><span style='white-space: nowrap'>n</span></font></i></code>
+ is a non-negative integer with default value zero;
+i.e., if it is not present, zero is used.
+
+<br>
+<br>
+<b><big><a name="vec_bool" id="vec_bool">vec_bool</a></big></b>
+<br>
+This result 
+<code><i><font color="black"><span style='white-space: nowrap'>bv</span></font></i></code>
+ is a vector with elements of type <code><font color="blue">bool</font></code>
+
+<br>
+<br>
+<b><big><a name="vec_int" id="vec_int">vec_int</a></big></b>
+<br>
+This result 
+<code><i><font color="black"><span style='white-space: nowrap'>bv</span></font></i></code>
+ is a vector with elements of type <code><font color="blue">int</font></code>
+
+<br>
+<br>
+<b><big><a name="vec_double" id="vec_double">vec_double</a></big></b>
+<br>
+This result 
+<code><i><font color="black"><span style='white-space: nowrap'>bv</span></font></i></code>
+ is a vector with elements of type <code><font color="blue">double</font></code>
+
+<br>
+<br>
+<b><big><a name="vec_a_double" id="vec_a_double">vec_a_double</a></big></b>
+<br>
+This result <code><font color="blue">av</font></code> is a vector with elements of type <a href="a_double.htm" target="_top"><span style='white-space: nowrap'>a_double</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="Example" id="Example">Example</a></big></b>
+<br>
+All of the other vector examples use the vector constructors.
+
+
+<hr>Input File: lib/vector.omh
+
+</body>
+</html>

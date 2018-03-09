@@ -1,0 +1,173 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Perl: Forward Mode AD: Example and Test</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Perl: Forward Mode AD: Example and Test">
+<meta name="keywords" id="keywords" content=" perl: forward mode ad: example test ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_a_fun_forward_xam.pm_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/cppad_swig" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="a_fun_forward_xam.m.htm" target="_top">Prev</a>
+</td><td><a href="a_fun_forward_xam.py.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>cppad_swig</option>
+<option>library</option>
+<option>a_fun</option>
+<option>a_fun_forward</option>
+<option>a_fun_forward_xam.pm</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down4(this)'>
+<option>cppad_swig-&gt;</option>
+<option>testing</option>
+<option>swig_xam.i</option>
+<option>library</option>
+<option>whats_new_2018</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>library-&gt;</option>
+<option>module</option>
+<option>a_double</option>
+<option>vector</option>
+<option>a_fun</option>
+<option>sparse</option>
+<option>error</option>
+<option>xam.m4</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>a_fun-&gt;</option>
+<option>independent</option>
+<option>abort_recording</option>
+<option>a_fun_ctor</option>
+<option>a_fun_jacobian</option>
+<option>a_fun_hessian</option>
+<option>a_fun_forward</option>
+<option>a_fun_reverse</option>
+<option>a_fun_optimize</option>
+<option>a_fun_property</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>a_fun_forward-&gt;</option>
+<option>a_fun_forward_xam.cpp</option>
+<option>a_fun_forward_xam.m</option>
+<option>a_fun_forward_xam.pm</option>
+<option>a_fun_forward_xam.py</option>
+</select>
+</td>
+<td>a_fun_forward_xam.pm</td>
+<td>Headings</td>
+</tr></table><br>
+@(@\newcommand{\B}[1]{ {\bf #1} }
+\newcommand{\R}[1]{ {\rm #1} }@)@<center><b><big><big>Perl: Forward Mode AD: Example and Test</big></big></b></center>
+<pre><tt><b><font color="#0000FF">package</font></b> a_fun_forward_xam<font color="#990000">;</font>
+<b><font color="#0000FF">sub</font></b> <b><font color="#000000">a_fun_forward_xam</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+     <i><font color="#9A1900"># check for standard perl programming conventions</font></i>
+     <b><font color="#0000FF">use</font></b> strict<font color="#990000">;</font>
+     <b><font color="#0000FF">use</font></b> warnings<font color="#990000">;</font>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># load the Cppad Swig library</font></i>
+     <b><font color="#0000FF">use</font></b> pm_cppad<font color="#990000">;</font>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># initilaize return variable</font></i>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$ok</font> <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font>
+     <i><font color="#9A1900"># ---------------------------------------------------------------------</font></i>
+     <i><font color="#9A1900"># number of dependent and independent variables</font></i>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$n_dep</font> <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$n_ind</font> <font color="#990000">=</font> <font color="#993399">2</font><font color="#990000">;</font>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># create the independent variables ax</font></i>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$xp</font> <font color="#990000">=</font> new pm_cppad<font color="#990000">::</font><b><font color="#000000">vec_double</font></b><font color="#990000">(</font><font color="#009900">$n_ind</font><font color="#990000">);</font>
+     <b><font color="#0000FF">for</font></b><font color="#990000">(</font><b><font color="#0000FF">my</font></b> <font color="#009900">$i</font> <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> <font color="#009900">$i</font> <font color="#990000">&lt;</font> <font color="#009900">$n_ind</font> <font color="#990000">;</font> <font color="#009900">$i</font><font color="#990000">++)</font> <font color="#FF0000">{</font>
+          <font color="#009900">$xp</font><font color="#990000">-&gt;</font><b><font color="#000000">set</font></b><font color="#990000">(</font><font color="#009900">$i</font><font color="#990000">,</font> <font color="#009900">$i</font> <font color="#990000">+</font> <font color="#993399">1.0</font><font color="#990000">);</font>
+     <font color="#FF0000">}</font>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$ax</font> <font color="#990000">=</font> pm_cppad<font color="#990000">::</font><b><font color="#000000">independent</font></b><font color="#990000">(</font><font color="#009900">$xp</font><font color="#990000">);</font>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># create dependent varialbes ay with ay0 = ax0 * ax1</font></i>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$ax0</font> <font color="#990000">=</font> <font color="#009900">$ax</font><font color="#990000">-&gt;</font><b><font color="#000000">get</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$ax1</font> <font color="#990000">=</font> <font color="#009900">$ax</font><font color="#990000">-&gt;</font><b><font color="#000000">get</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">);</font>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$ay</font> <font color="#990000">=</font> new pm_cppad<font color="#990000">::</font><b><font color="#000000">vec_a_double</font></b><font color="#990000">(</font><font color="#009900">$n_dep</font><font color="#990000">);</font>
+     <font color="#009900">$ay</font><font color="#990000">-&gt;</font><b><font color="#000000">set</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">,</font> <font color="#009900">$ax0</font> <font color="#990000">*</font> <font color="#009900">$ax1</font><font color="#990000">);</font>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># define af corresponding to f(x) = x0 * x1</font></i>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$af</font> <font color="#990000">=</font> new pm_cppad<font color="#990000">::</font><b><font color="#000000">a_fun</font></b><font color="#990000">(</font><font color="#009900">$ax</font><font color="#990000">,</font> <font color="#009900">$ay</font><font color="#990000">);</font>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># define X(t) = (3 + t, 2 + t)</font></i>
+     <i><font color="#9A1900"># it follows that Y(t) = f(X(t)) = (3 + t) * (2 + t)</font></i>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># Y(0) = 6 and p ! = 1</font></i>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$p</font> <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+     <font color="#009900">$xp</font><font color="#990000">-&gt;</font><b><font color="#000000">set</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">,</font> <font color="#993399">3.0</font><font color="#990000">);</font>
+     <font color="#009900">$xp</font><font color="#990000">-&gt;</font><b><font color="#000000">set</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">,</font> <font color="#993399">2.0</font><font color="#990000">);</font>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$yp</font> <font color="#990000">=</font> <font color="#009900">$af</font><font color="#990000">-&gt;</font><b><font color="#000000">forward</font></b><font color="#990000">(</font><font color="#009900">$p</font><font color="#990000">,</font> <font color="#009900">$xp</font><font color="#990000">);</font>
+     <font color="#009900">$ok</font> <font color="#990000">=</font> <font color="#009900">$ok</font> <font color="#990000">&amp;&amp;</font> <font color="#009900">$yp</font><font color="#990000">-&gt;</font><b><font color="#000000">get</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">)</font> <font color="#990000">==</font> <font color="#993399">6.0</font><font color="#990000">;</font>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># first order Taylor coefficients for X(t)</font></i>
+     <font color="#009900">$p</font> <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font>
+     <font color="#009900">$xp</font><font color="#990000">-&gt;</font><b><font color="#000000">set</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">,</font> <font color="#993399">1.0</font><font color="#990000">);</font>
+     <font color="#009900">$xp</font><font color="#990000">-&gt;</font><b><font color="#000000">set</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">,</font> <font color="#993399">1.0</font><font color="#990000">);</font>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># first order Taylor coefficient for Y(t)</font></i>
+     <i><font color="#9A1900"># Y'(0) = 3 + 2 = 5 and p ! = 1</font></i>
+     <font color="#009900">$yp</font> <font color="#990000">=</font> <font color="#009900">$af</font><font color="#990000">-&gt;</font><b><font color="#000000">forward</font></b><font color="#990000">(</font><font color="#009900">$p</font><font color="#990000">,</font> <font color="#009900">$xp</font><font color="#990000">);</font>
+     <font color="#009900">$ok</font> <font color="#990000">=</font> <font color="#009900">$ok</font> <font color="#990000">&amp;&amp;</font> <font color="#009900">$yp</font><font color="#990000">-&gt;</font><b><font color="#000000">get</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">)</font> <font color="#990000">==</font> <font color="#993399">5.0</font><font color="#990000">;</font>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># second order Taylor coefficients for X(t)</font></i>
+     <font color="#009900">$p</font> <font color="#990000">=</font> <font color="#993399">2</font><font color="#990000">;</font>
+     <font color="#009900">$xp</font><font color="#990000">-&gt;</font><b><font color="#000000">set</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">,</font> <font color="#993399">0.0</font><font color="#990000">);</font>
+     <font color="#009900">$xp</font><font color="#990000">-&gt;</font><b><font color="#000000">set</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">,</font> <font color="#993399">0.0</font><font color="#990000">);</font>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># second order Taylor coefficient for Y(t)</font></i>
+     <i><font color="#9A1900"># Y''(0) = 2.0 and p ! = 2</font></i>
+     <font color="#009900">$yp</font> <font color="#990000">=</font> <font color="#009900">$af</font><font color="#990000">-&gt;</font><b><font color="#000000">forward</font></b><font color="#990000">(</font><font color="#009900">$p</font><font color="#990000">,</font> <font color="#009900">$xp</font><font color="#990000">);</font>
+     <font color="#009900">$ok</font> <font color="#990000">=</font> <font color="#009900">$ok</font> <font color="#990000">&amp;&amp;</font> <font color="#009900">$yp</font><font color="#990000">-&gt;</font><b><font color="#000000">get</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">)</font> <font color="#990000">==</font> <font color="#993399">1.0</font><font color="#990000">;</font>
+     <i><font color="#9A1900">#</font></i>
+     <b><font color="#0000FF">return</font></b><font color="#990000">(</font> <font color="#009900">$ok</font> <font color="#990000">);</font>
+<font color="#FF0000">}</font></tt></pre>
+
+<hr>Input File: build/lib/example/perl/a_fun_forward_xam.pm
+
+</body>
+</html>

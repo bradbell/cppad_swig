@@ -1,0 +1,180 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Perl: Jacobian Sparsity Patterns: Example and Test</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Perl: Jacobian Sparsity Patterns: Example and Test">
+<meta name="keywords" id="keywords" content=" perl: jacobian sparsity patterns: example test ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_sparse_jac_pattern_xam.pm_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/cppad_swig" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="sparse_jac_pattern_xam.m.htm" target="_top">Prev</a>
+</td><td><a href="sparse_jac_pattern_xam.py.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>cppad_swig</option>
+<option>library</option>
+<option>sparse</option>
+<option>jac_sparsity</option>
+<option>sparse_jac_pattern_xam.pm</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down4(this)'>
+<option>cppad_swig-&gt;</option>
+<option>testing</option>
+<option>swig_xam.i</option>
+<option>library</option>
+<option>whats_new_2018</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>library-&gt;</option>
+<option>module</option>
+<option>a_double</option>
+<option>vector</option>
+<option>a_fun</option>
+<option>sparse</option>
+<option>error</option>
+<option>xam.m4</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>sparse-&gt;</option>
+<option>sparse_rc</option>
+<option>sparse_rcv</option>
+<option>jac_sparsity</option>
+<option>hes_sparsity</option>
+<option>sparse_jac</option>
+<option>sparse_hes</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>jac_sparsity-&gt;</option>
+<option>sparse_jac_pattern_xam.cpp</option>
+<option>sparse_jac_pattern_xam.m</option>
+<option>sparse_jac_pattern_xam.pm</option>
+<option>sparse_jac_pattern_xam.py</option>
+</select>
+</td>
+<td>sparse_jac_pattern_xam.pm</td>
+<td>Headings</td>
+</tr></table><br>
+@(@\newcommand{\B}[1]{ {\bf #1} }
+\newcommand{\R}[1]{ {\rm #1} }@)@<center><b><big><big>Perl: Jacobian Sparsity Patterns: Example and Test</big></big></b></center>
+<pre><tt><b><font color="#0000FF">package</font></b> sparse_jac_pattern_xam<font color="#990000">;</font>
+<b><font color="#0000FF">sub</font></b> <b><font color="#000000">sparse_jac_pattern_xam</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+     <i><font color="#9A1900"># check for standard perl programming conventions</font></i>
+     <b><font color="#0000FF">use</font></b> strict<font color="#990000">;</font>
+     <b><font color="#0000FF">use</font></b> warnings<font color="#990000">;</font>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># load the Cppad Swig library</font></i>
+     <b><font color="#0000FF">use</font></b> pm_cppad<font color="#990000">;</font>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># initilaize return variable</font></i>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$ok</font> <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font>
+     <i><font color="#9A1900"># ---------------------------------------------------------------------</font></i>
+     <i><font color="#9A1900"># number of dependent and independent variables</font></i>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$n</font> <font color="#990000">=</font> <font color="#993399">3</font><font color="#990000">;</font>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># create the independent variables ax</font></i>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$x</font> <font color="#990000">=</font> new pm_cppad<font color="#990000">::</font><b><font color="#000000">vec_double</font></b><font color="#990000">(</font><font color="#009900">$n</font><font color="#990000">);</font>
+     <b><font color="#0000FF">for</font></b><font color="#990000">(</font><b><font color="#0000FF">my</font></b> <font color="#009900">$i</font> <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> <font color="#009900">$i</font> <font color="#990000">&lt;</font> <font color="#009900">$n</font> <font color="#990000">;</font> <font color="#009900">$i</font><font color="#990000">++)</font> <font color="#FF0000">{</font>
+          <font color="#009900">$x</font><font color="#990000">-&gt;</font><b><font color="#000000">set</font></b><font color="#990000">(</font><font color="#009900">$i</font><font color="#990000">,</font> <font color="#009900">$i</font> <font color="#990000">+</font> <font color="#993399">2.0</font><font color="#990000">);</font>
+     <font color="#FF0000">}</font>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$ax</font> <font color="#990000">=</font> pm_cppad<font color="#990000">::</font><b><font color="#000000">independent</font></b><font color="#990000">(</font><font color="#009900">$x</font><font color="#990000">);</font>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># create dependent variables ay with ay[i] = ax[j]</font></i>
+     <i><font color="#9A1900"># where i = mod(j + 1, n)</font></i>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$ay</font> <font color="#990000">=</font> new pm_cppad<font color="#990000">::</font><b><font color="#000000">vec_a_double</font></b><font color="#990000">(</font><font color="#009900">$n</font><font color="#990000">);</font>
+     <b><font color="#0000FF">for</font></b><font color="#990000">(</font><b><font color="#0000FF">my</font></b> <font color="#009900">$j</font> <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> <font color="#009900">$j</font> <font color="#990000">&lt;</font> <font color="#009900">$n</font> <font color="#990000">;</font> <font color="#009900">$j</font><font color="#990000">++)</font> <font color="#FF0000">{</font>
+          <b><font color="#0000FF">my</font></b> <font color="#009900">$i</font> <font color="#990000">=</font> <font color="#009900">$j</font><font color="#990000">+</font><font color="#993399">1</font><font color="#990000">;</font>
+          <b><font color="#0000FF">if</font></b><font color="#990000">(</font> <font color="#009900">$i</font> <font color="#990000">&gt;=</font> <font color="#009900">$n</font>  <font color="#990000">)</font> <font color="#FF0000">{</font>
+               <font color="#009900">$i</font> <font color="#990000">=</font> <font color="#009900">$i</font> <font color="#990000">-</font> <font color="#009900">$n</font><font color="#990000">;</font>
+          <font color="#FF0000">}</font>
+          <b><font color="#0000FF">my</font></b> <font color="#009900">$ay_i</font> <font color="#990000">=</font> <font color="#009900">$ax</font><font color="#990000">-&gt;</font><b><font color="#000000">get</font></b><font color="#990000">(</font><font color="#009900">$j</font><font color="#990000">);</font>
+          <font color="#009900">$ay</font><font color="#990000">-&gt;</font><b><font color="#000000">set</font></b><font color="#990000">(</font><font color="#009900">$i</font><font color="#990000">,</font> <font color="#009900">$ay_i</font><font color="#990000">);</font>
+     <font color="#FF0000">}</font>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># define af corresponding to f(x)</font></i>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$af</font> <font color="#990000">=</font> new pm_cppad<font color="#990000">::</font><b><font color="#000000">a_fun</font></b><font color="#990000">(</font><font color="#009900">$ax</font><font color="#990000">,</font> <font color="#009900">$ay</font><font color="#990000">);</font>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># sparsity pattern for identity matrix</font></i>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$pat_in</font> <font color="#990000">=</font> new pm_cppad<font color="#990000">::</font><b><font color="#000000">sparse_rc</font></b><font color="#990000">();</font>
+     <font color="#009900">$pat_in</font><font color="#990000">-&gt;</font><b><font color="#000000">resize</font></b><font color="#990000">(</font><font color="#009900">$n</font><font color="#990000">,</font> <font color="#009900">$n</font><font color="#990000">,</font> <font color="#009900">$n</font><font color="#990000">);</font>
+     <b><font color="#0000FF">for</font></b><font color="#990000">(</font><b><font color="#0000FF">my</font></b> <font color="#009900">$k</font> <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> <font color="#009900">$k</font> <font color="#990000">&lt;</font> <font color="#009900">$n</font><font color="#990000">;</font> <font color="#009900">$k</font><font color="#990000">++)</font> <font color="#FF0000">{</font>
+          <font color="#009900">$pat_in</font><font color="#990000">-&gt;</font><b><font color="#000000">put</font></b><font color="#990000">(</font><font color="#009900">$k</font><font color="#990000">,</font> <font color="#009900">$k</font><font color="#990000">,</font> <font color="#009900">$k</font><font color="#990000">);</font>
+     <font color="#FF0000">}</font>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># loop over forward and reverse mode</font></i>
+     <b><font color="#0000FF">for</font></b><font color="#990000">(</font><b><font color="#0000FF">my</font></b> <font color="#009900">$mode</font> <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> <font color="#009900">$mode</font> <font color="#990000">&lt;</font> <font color="#993399">2</font><font color="#990000">;</font> <font color="#009900">$mode</font><font color="#990000">++)</font> <font color="#FF0000">{</font>
+          <b><font color="#0000FF">my</font></b> <font color="#009900">$pat_out</font> <font color="#990000">=</font> new pm_cppad<font color="#990000">::</font><b><font color="#000000">sparse_rc</font></b><font color="#990000">();</font>
+          <b><font color="#0000FF">if</font></b><font color="#990000">(</font> <font color="#009900">$mode</font> <font color="#990000">==</font> <font color="#993399">0</font>  <font color="#990000">)</font> <font color="#FF0000">{</font>
+               <font color="#009900">$af</font><font color="#990000">-&gt;</font><b><font color="#000000">for_jac_sparsity</font></b><font color="#990000">(</font><font color="#009900">$pat_in</font><font color="#990000">,</font> <font color="#009900">$pat_out</font><font color="#990000">);</font>
+          <font color="#FF0000">}</font>
+          <b><font color="#0000FF">if</font></b><font color="#990000">(</font> <font color="#009900">$mode</font> <font color="#990000">==</font> <font color="#993399">1</font>  <font color="#990000">)</font> <font color="#FF0000">{</font>
+               <font color="#009900">$af</font><font color="#990000">-&gt;</font><b><font color="#000000">rev_jac_sparsity</font></b><font color="#990000">(</font><font color="#009900">$pat_in</font><font color="#990000">,</font> <font color="#009900">$pat_out</font><font color="#990000">);</font>
+          <font color="#FF0000">}</font>
+          <i><font color="#9A1900">#</font></i>
+          <i><font color="#9A1900"># check that result is sparsity pattern for Jacobian</font></i>
+          <font color="#009900">$ok</font> <font color="#990000">=</font> <font color="#009900">$ok</font> <font color="#990000">&amp;&amp;</font> <font color="#009900">$n</font> <font color="#990000">==</font> <font color="#009900">$pat_out</font><font color="#990000">-&gt;</font><b><font color="#000000">nnz</font></b><font color="#990000">();</font>
+          <b><font color="#0000FF">my</font></b> <font color="#009900">$col_major</font> <font color="#990000">=</font> <font color="#009900">$pat_out</font><font color="#990000">-&gt;</font><b><font color="#000000">col_major</font></b><font color="#990000">();</font>
+          <b><font color="#0000FF">my</font></b> <font color="#009900">$row</font> <font color="#990000">=</font> <font color="#009900">$pat_out</font><font color="#990000">-&gt;</font><b><font color="#000000">row</font></b><font color="#990000">();</font>
+          <b><font color="#0000FF">my</font></b> <font color="#009900">$col</font> <font color="#990000">=</font> <font color="#009900">$pat_out</font><font color="#990000">-&gt;</font><b><font color="#000000">col</font></b><font color="#990000">();</font>
+          <b><font color="#0000FF">for</font></b><font color="#990000">(</font><b><font color="#0000FF">my</font></b> <font color="#009900">$k</font> <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> <font color="#009900">$k</font> <font color="#990000">&lt;</font> <font color="#009900">$n</font><font color="#990000">;</font> <font color="#009900">$k</font><font color="#990000">++)</font> <font color="#FF0000">{</font>
+               <b><font color="#0000FF">my</font></b> <font color="#009900">$ell</font> <font color="#990000">=</font> <font color="#009900">$col_major</font><font color="#990000">-&gt;</font><b><font color="#000000">get</font></b><font color="#990000">(</font><font color="#009900">$k</font><font color="#990000">);</font>
+               <b><font color="#0000FF">my</font></b> <font color="#009900">$r</font> <font color="#990000">=</font> <font color="#009900">$row</font><font color="#990000">-&gt;</font><b><font color="#000000">get</font></b><font color="#990000">(</font><font color="#009900">$ell</font><font color="#990000">);</font>
+               <b><font color="#0000FF">my</font></b> <font color="#009900">$c</font> <font color="#990000">=</font> <font color="#009900">$col</font><font color="#990000">-&gt;</font><b><font color="#000000">get</font></b><font color="#990000">(</font><font color="#009900">$ell</font><font color="#990000">);</font>
+               <b><font color="#0000FF">my</font></b> <font color="#009900">$i</font> <font color="#990000">=</font> <font color="#009900">$c</font><font color="#990000">+</font><font color="#993399">1</font><font color="#990000">;</font>
+               <b><font color="#0000FF">if</font></b><font color="#990000">(</font> <font color="#009900">$i</font> <font color="#990000">&gt;=</font>  <font color="#009900">$n</font>  <font color="#990000">)</font> <font color="#FF0000">{</font>
+                    <font color="#009900">$i</font> <font color="#990000">=</font> <font color="#009900">$i</font> <font color="#990000">-</font> <font color="#009900">$n</font><font color="#990000">;</font>
+               <font color="#FF0000">}</font>
+               <font color="#009900">$ok</font> <font color="#990000">=</font> <font color="#009900">$ok</font> <font color="#990000">&amp;&amp;</font> <font color="#009900">$c</font> <font color="#990000">==</font> <font color="#009900">$k</font><font color="#990000">;</font>
+               <font color="#009900">$ok</font> <font color="#990000">=</font> <font color="#009900">$ok</font> <font color="#990000">&amp;&amp;</font> <font color="#009900">$r</font> <font color="#990000">==</font> <font color="#009900">$i</font><font color="#990000">;</font>
+          <font color="#FF0000">}</font>
+     <font color="#FF0000">}</font>
+     <i><font color="#9A1900">#</font></i>
+     <b><font color="#0000FF">return</font></b><font color="#990000">(</font> <font color="#009900">$ok</font> <font color="#990000">);</font>
+<font color="#FF0000">}</font></tt></pre>
+
+<hr>Input File: build/lib/example/perl/sparse_jac_pattern_xam.pm
+
+</body>
+</html>

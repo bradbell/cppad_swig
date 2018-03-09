@@ -1,0 +1,235 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>cppad_swig-20180309: A C++ AD Library with a Swig Interface</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="cppad_swig-20180309: A C++ AD Library with a Swig Interface">
+<meta name="keywords" id="keywords" content=" cppad_swig-20180309: c++ ad library with swig interface purpose getting started function speed supporting packages required optional source directory support license contents ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_cppad_swig_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/cppad_swig" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td>Prev</td><td><a href="_contents.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>cppad_swig</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down0(this)'>
+<option>cppad_swig-&gt;</option>
+<option>testing</option>
+<option>swig_xam.i</option>
+<option>library</option>
+<option>whats_new_2018</option>
+</select>
+</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Purpose</option>
+<option>Getting Started</option>
+<option>C++ Function Speed</option>
+<option>Supporting Packages</option>
+<option>---..Required</option>
+<option>---..Optional</option>
+<option>Source Directory</option>
+<option>Support</option>
+<option>License</option>
+<option>Contents</option>
+</select>
+</td>
+</tr></table><br>
+<small>@(@
+\newcommand{\B}[1]{ {\bf #1} }
+\newcommand{\R}[1]{ {\rm #1} }
+@)@</small><center><b><big><big>cppad_swig-20180309: A C++ AD Library with a Swig Interface</big></big></b></center>
+<br>
+<b><big><a name="Purpose" id="Purpose">Purpose</a></big></b>
+<br>
+Provide Algorithmic Differentiation (AD),
+for any <a href="http://www.Swig.org" target="_top"><span style='white-space: nowrap'>Swig</span></a>
+ scripting language,
+using a C++ object library that connects some of the features of
+<a href="https://www.coin-or.org/Cppad" target="_top"><span style='white-space: nowrap'>Cppad</span></a>
+.
+This interface is limited by the fact that it is for any
+scripting language and for C++.
+It is expected that one will write special purpose wrapping operations,
+in each particular language, to make a more natural interface for that
+language.
+For example, in Python, one might create
+<a href="http://www.numpy.org/" target="_top"><span style='white-space: nowrap'>numpy</span></a>
+ versions of the
+<a href="vector.htm" target="_top"><span style='white-space: nowrap'>vector</span></a>
+ classes.
+
+<br>
+<br>
+<b><big><a name="Getting Started" id="Getting Started">Getting Started</a></big></b>
+<br>
+The following is a good place to see what the interface is for
+the currently supported languages:
+<a href="a_fun_jacobian_xam.cpp.htm" target="_top"><span style='white-space: nowrap'>C++</span></a>
+,
+<a href="a_fun_jacobian_xam.m.htm" target="_top"><span style='white-space: nowrap'>Octave</span></a>
+,
+<a href="a_fun_jacobian_xam.pm.htm" target="_top"><span style='white-space: nowrap'>Perl</span></a>
+,
+<a href="a_fun_jacobian_xam.py.htm" target="_top"><span style='white-space: nowrap'>Python</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="C++ Function Speed" id="C++ Function Speed">C++ Function Speed</a></big></b>
+<br>
+One can use Cppad Swig to get faster function evaluation in scripting languages,
+when the sequence of floating point operations does not depend on the
+independent variables.
+Once an <a href="a_fun.htm" target="_top"><span style='white-space: nowrap'>a_fun</span></a>
+ is recorded, zero order
+<a href="a_fun_forward.htm" target="_top"><span style='white-space: nowrap'>forward&nbsp;mode</span></a>
+ can be used to
+effectively evaluate the function in C++ instead of the scripting language.
+
+<br>
+<br>
+<b><big><a name="Supporting Packages" id="Supporting Packages">Supporting Packages</a></big></b>
+<br>
+The
+<a href="https://www.coin-or.org/CppAD/" target="_top"><span style='white-space: nowrap'>Cppad</span></a>
+ package is automatically
+installed by <a href="run_cmake.sh.htm" target="_top"><span style='white-space: nowrap'>run_cmake.sh</span></a>
+.
+The following packages are not automatically installed:
+
+<br>
+<br>
+<b><a name="Supporting Packages.Required" id="Supporting Packages.Required">Required</a></b>
+
+<br>
+<a href="https://en.wikipedia.org/wiki/C++" target="_top"><span style='white-space: nowrap'>C++</span></a>
+,
+<a href="https://cmake.org" target="_top"><span style='white-space: nowrap'>Cmake</span></a>
+,
+<a href="https://git-scm.com" target="_top"><span style='white-space: nowrap'>Git</span></a>
+,
+<a href="https://www.gnu.org/software/m4/m4.html" target="_top"><span style='white-space: nowrap'>m4</span></a>
+,
+<a href="http://www.swig.org" target="_top"><span style='white-space: nowrap'>Swig</span></a>
+,
+
+<br>
+<br>
+<b><a name="Supporting Packages.Optional" id="Supporting Packages.Optional">Optional</a></b>
+
+<br>
+<a href="https://www.gnu.org/software/octave/#install" target="_top"><span style='white-space: nowrap'>Octave</span></a>
+,
+<a href="https://www.perl.org/get.html" target="_top"><span style='white-space: nowrap'>Perl</span></a>
+,
+<a href="https://www.python.org/" target="_top"><span style='white-space: nowrap'>Python</span></a>
+
+
+
+<br>
+<br>
+<b><big><a name="Source Directory" id="Source Directory">Source Directory</a></big></b>
+<br>
+This is a preliminary version of this package.
+Currently, one gets the source code from Github at
+<a href="https://github.com/bradbell/cppad_swig" target="_top"><span style='white-space: nowrap'>cppad_swig</span></a>
+.
+The corresponding directory is referred to as the source directory.
+For example, if one uses the command
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;git&nbsp;clone&nbsp;https://github.com/bradbell/cppad_swig&nbsp;cppad_swig.git<br>
+</span></font></code>
+the source directory is <code><font color="blue">cppad_swig.git</font></code>.
+
+<br>
+<br>
+<b><big><a name="Support" id="Support">Support</a></big></b>
+<br>
+As yet, there is no install procedure for this package.
+Part of the problem here is that it would be different for different
+scripting languages.
+Contact the
+<a href="http://www.seanet.com/~bradbell/home.htm" target="_top"><span style='white-space: nowrap'>author</span></a>
+
+if you are working with a particular language
+and have need of an install procedure or other support.
+
+<br>
+<br>
+<b><big><a name="License" id="License">License</a></big></b>
+<br>
+This program is distributed under the terms of the
+    GNU General Public License version 3.0 or later see
+<a href="http://www.gnu.org/licenses/gpl-3.0.txt" target="_top"><span style='white-space: nowrap'>gpl-3.0.txt</span></a>
+.
+
+
+<br>
+<br>
+<b><big><a name="Contents" id="Contents">Contents</a></big></b>
+
+<table><tr><td align='left'  valign='top'>
+
+<a href="testing.htm" target="_top">testing</a></td><td>
+Running the Cppad Swig Tests</td></tr>
+<tr><td>
+
+<a href="swig_xam.i.htm" target="_top">swig_xam.i</a></td><td>
+Example Using Swig with C++</td></tr>
+<tr><td>
+
+<a href="library.htm" target="_top">library</a></td><td>
+The Cppad Swig Library</td></tr>
+<tr><td>
+
+<a href="whats_new_2018.htm" target="_top">whats_new_2018</a></td><td>
+Cppad Swig Changes During 2018</td></tr>
+<tr><td>
+
+</td></tr>
+</table>
+
+<hr>Input File: doc.omh
+
+</body>
+</html>

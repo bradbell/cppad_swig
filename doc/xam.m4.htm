@@ -1,0 +1,181 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Generating Language Specific Example Files Using M4 Macros</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Generating Language Specific Example Files Using M4 Macros">
+<meta name="keywords" id="keywords" content=" generating language specific example files using m4 macros syntax command directory xam_file_name includes output ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_xam.m4_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/cppad_swig" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="error_message_xam.py.htm" target="_top">Prev</a>
+</td><td><a href="lang_m4.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>cppad_swig</option>
+<option>library</option>
+<option>xam.m4</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>cppad_swig-&gt;</option>
+<option>testing</option>
+<option>swig_xam.i</option>
+<option>library</option>
+<option>whats_new_2018</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>library-&gt;</option>
+<option>module</option>
+<option>a_double</option>
+<option>vector</option>
+<option>a_fun</option>
+<option>sparse</option>
+<option>error</option>
+<option>xam.m4</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down0(this)'>
+<option>xam.m4-&gt;</option>
+<option>lang_m4</option>
+<option>xam_file_name.m4</option>
+<option>header.m4</option>
+<option>lang_name.m4</option>
+<option>omhelp.m4</option>
+</select>
+</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>m4 Command</option>
+<option>directory</option>
+<option>language</option>
+<option>xam_file_name</option>
+<option>Includes</option>
+<option>Output</option>
+</select>
+</td>
+</tr></table><br>
+@(@\newcommand{\B}[1]{ {\bf #1} }
+\newcommand{\R}[1]{ {\rm #1} }@)@<center><b><big><big>Generating Language Specific Example Files Using M4 Macros</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<code><font color="blue"><br>
+include(xam.m4)dnl</font></code>
+
+<br>
+<br>
+<b><big><a name="m4 Command" id="m4 Command">m4 Command</a></big></b>
+<br>
+For this documentation, it is assumed that the m4 command is a follows:
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m4&nbsp;-I&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>directory</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;-D&nbsp;Language_=</span></font><i><font color="black"><span style='white-space: nowrap'>language</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>xam_file_name</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+<br>
+<b><big><a name="directory" id="directory">directory</a></big></b>
+<br>
+is the directory where the <code><font color="blue">xam.m4</font></code> file is located; i.e.,
+<code><font color="blue">lib/xam</font></code> relative to the Cppad Swig source directory.
+
+<br>
+<br>
+<b><big><a name="language" id="language">language</a></big></b>
+<br>
+is one of the available languages; i.e.,
+<code><font color="blue">cplusplus</font></code>, <code><font color="blue">octave</font></code>, <code><font color="blue">perl</font></code>, or <code><font color="blue">python</font></code>.
+
+<br>
+<br>
+<b><big><a name="xam_file_name" id="xam_file_name">xam_file_name</a></big></b>
+<br>
+is the name of one of the *.xam files relative to the <code><font color="blue">lib/xam</font></code>
+directory; e.g., <code><font color="blue">vector/ad_xam.xam</font></code>.
+This, combined with the language, determines the example / test
+that is being created.
+
+
+<br>
+<br>
+<b><big><a name="Includes" id="Includes">Includes</a></big></b>
+<br>
+Including <code><font color="blue">xam.m4</font></code> includes the following macros:
+<ol type="1"><li>
+<a href="lang_m4.htm" target="_top"><span style='white-space: nowrap'>lang_m4</span></a>
+
+</li><li>
+
+<a href="lang_name.m4.htm" target="_top"><span style='white-space: nowrap'>lang_name.m4</span></a>
+
+</li><li>
+
+<a href="xam_file_name.m4.htm" target="_top"><span style='white-space: nowrap'>xam_file_name.m4</span></a>
+
+</li><li>
+
+<a href="header.m4.htm" target="_top"><span style='white-space: nowrap'>header.m4</span></a>
+
+</li><li>
+
+<a href="omhelp.m4.htm" target="_top"><span style='white-space: nowrap'>omhelp.m4</span></a>
+
+</li></ol>
+
+
+<br>
+<br>
+<b><big><a name="Output" id="Output">Output</a></big></b>
+<br>
+There is no output during the include of <code><font color="blue">xam.m4</font></code>.
+To be specific, the output is diverted to <code><font color="blue">-1</font></code> during the
+include of <code><font color="blue">xam.m4</font></code> and restored to <code><font color="blue">0</font></code> after it.
+The <code><font color="blue">dnl</font></code>
+in the <a href="xam.m4.htm#Syntax" target="_top"><span style='white-space: nowrap'>syntax</span></a>
+ above suppresses the output
+of the newline at the end of the include of <code><font color="blue">xam.m4</font></code>.
+
+
+<hr>Input File: lib/xam/xam.m4
+
+</body>
+</html>

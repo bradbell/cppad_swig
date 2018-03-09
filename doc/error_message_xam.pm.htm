@@ -1,0 +1,122 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Perl: Cppad Swig Exception Handling: Example and Test</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Perl: Cppad Swig Exception Handling: Example and Test">
+<meta name="keywords" id="keywords" content=" perl: cppad swig exception handling: example test ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_error_message_xam.pm_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/cppad_swig" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="error_message_xam.m.htm" target="_top">Prev</a>
+</td><td><a href="error_message_xam.py.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>cppad_swig</option>
+<option>library</option>
+<option>error</option>
+<option>error_message</option>
+<option>error_message_xam.pm</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down4(this)'>
+<option>cppad_swig-&gt;</option>
+<option>testing</option>
+<option>swig_xam.i</option>
+<option>library</option>
+<option>whats_new_2018</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>library-&gt;</option>
+<option>module</option>
+<option>a_double</option>
+<option>vector</option>
+<option>a_fun</option>
+<option>sparse</option>
+<option>error</option>
+<option>xam.m4</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>error-&gt;</option>
+<option>error_message</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>error_message-&gt;</option>
+<option>error_message_xam.cpp</option>
+<option>error_message_xam.m</option>
+<option>error_message_xam.pm</option>
+<option>error_message_xam.py</option>
+</select>
+</td>
+<td>error_message_xam.pm</td>
+<td>Headings</td>
+</tr></table><br>
+@(@\newcommand{\B}[1]{ {\bf #1} }
+\newcommand{\R}[1]{ {\rm #1} }@)@<center><b><big><big>Perl: Cppad Swig Exception Handling: Example and Test</big></big></b></center>
+<pre><tt><b><font color="#0000FF">package</font></b> error_message_xam<font color="#990000">;</font>
+<b><font color="#0000FF">sub</font></b> <b><font color="#000000">error_message_xam</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+     <i><font color="#9A1900"># check for standard perl programming conventions</font></i>
+     <b><font color="#0000FF">use</font></b> strict<font color="#990000">;</font>
+     <b><font color="#0000FF">use</font></b> warnings<font color="#990000">;</font>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># load the Cppad Swig library</font></i>
+     <b><font color="#0000FF">use</font></b> pm_cppad<font color="#990000">;</font>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># initilaize return variable</font></i>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$ok</font> <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font>
+     <i><font color="#9A1900"># ---------------------------------------------------------------------</font></i>
+     <font color="#009900">$ok</font> <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+     <b><font color="#0000FF">eval</font></b> <font color="#FF0000">{</font> <i><font color="#9A1900"># try</font></i>
+          pm_cppad<font color="#990000">::</font><b><font color="#000000">error_message</font></b><font color="#990000">(</font><font color="#FF0000">"test message"</font><font color="#990000">);</font>
+     <font color="#FF0000">}</font><font color="#990000">;</font> <b><font color="#0000FF">if</font></b><font color="#990000">(</font> $@ <font color="#990000">)</font> <font color="#FF0000">{</font> <i><font color="#9A1900"># catch</font></i>
+          <b><font color="#0000FF">my</font></b> <font color="#009900">$stored_message</font> <font color="#990000">=</font> pm_cppad<font color="#990000">::</font><b><font color="#000000">error_message</font></b><font color="#990000">(</font><font color="#FF0000">""</font><font color="#990000">);</font>
+          <font color="#009900">$ok</font> <font color="#990000">=</font> <font color="#009900">$stored_message</font> <b><font color="#0000FF">eq</font></b> <font color="#FF0000">"test message"</font><font color="#990000">;</font>
+     <font color="#FF0000">}</font>
+     <b><font color="#0000FF">return</font></b><font color="#990000">(</font> <font color="#009900">$ok</font>  <font color="#990000">);</font>
+<font color="#FF0000">}</font></tt></pre>
+
+<hr>Input File: build/lib/example/perl/error_message_xam.pm
+
+</body>
+</html>

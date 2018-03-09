@@ -1,0 +1,213 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Properties of an AD Function</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Properties of an AD Function">
+<meta name="keywords" id="keywords" content=" properties ad function syntax af size_ind size_dep size_var size_op example ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_a_fun_property_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/cppad_swig" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="a_fun_optimize_xam.py.htm" target="_top">Prev</a>
+</td><td><a href="a_fun_property_xam.cpp.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>cppad_swig</option>
+<option>library</option>
+<option>a_fun</option>
+<option>a_fun_property</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>cppad_swig-&gt;</option>
+<option>testing</option>
+<option>swig_xam.i</option>
+<option>library</option>
+<option>whats_new_2018</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>library-&gt;</option>
+<option>module</option>
+<option>a_double</option>
+<option>vector</option>
+<option>a_fun</option>
+<option>sparse</option>
+<option>error</option>
+<option>xam.m4</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>a_fun-&gt;</option>
+<option>independent</option>
+<option>abort_recording</option>
+<option>a_fun_ctor</option>
+<option>a_fun_jacobian</option>
+<option>a_fun_hessian</option>
+<option>a_fun_forward</option>
+<option>a_fun_reverse</option>
+<option>a_fun_optimize</option>
+<option>a_fun_property</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down0(this)'>
+<option>a_fun_property-&gt;</option>
+<option>a_fun_property_xam.cpp</option>
+<option>a_fun_property_xam.m</option>
+<option>a_fun_property_xam.pm</option>
+<option>a_fun_property_xam.py</option>
+</select>
+</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>af</option>
+<option>size_ind</option>
+<option>size_dep</option>
+<option>size_var</option>
+<option>size_op</option>
+<option>Example</option>
+</select>
+</td>
+</tr></table><br>
+@(@\newcommand{\B}[1]{ {\bf #1} }
+\newcommand{\R}[1]{ {\rm #1} }@)@
+
+
+<center><b><big><big>Properties of an AD Function</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><i><font color="black"><span style='white-space: nowrap'>n</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>af</span></font></i><font color="blue"><span style='white-space: nowrap'>.size_ind()<br>
+</span></font></code>
+
+<code><i><font color="black"><span style='white-space: nowrap'>m</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>af</span></font></i><font color="blue"><span style='white-space: nowrap'>.size_dep()<br>
+</span></font></code>
+
+<code><i><font color="black"><span style='white-space: nowrap'>v</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>af</span></font></i><font color="blue"><span style='white-space: nowrap'>.size_var()<br>
+</span></font></code>
+
+<code><i><font color="black"><span style='white-space: nowrap'>p</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>af</span></font></i><font color="blue"><span style='white-space: nowrap'>.size_op()<br>
+</span></font></code>
+<br>
+<b><big><a name="af" id="af">af</a></big></b>
+<br>
+This object has prototype
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;a_fun&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>af</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+<br>
+<b><big><a name="size_ind" id="size_ind">size_ind</a></big></b>
+<br>
+The return value has prototype
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>n</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+an is the size of the vector
+<a href="a_fun_ctor.htm#ax" target="_top"><span style='white-space: nowrap'>ax</span></a>
+ in the function constructor; i.e.,
+the number of independent variables.
+
+<br>
+<br>
+<b><big><a name="size_dep" id="size_dep">size_dep</a></big></b>
+<br>
+The return value has prototype
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>m</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+an is the size of the vector
+<a href="a_fun_ctor.htm#ay" target="_top"><span style='white-space: nowrap'>ay</span></a>
+ in the function constructor; i.e.,
+the number of dependent variables.
+
+<br>
+<br>
+<b><big><a name="size_var" id="size_var">size_var</a></big></b>
+<br>
+The return value has prototype
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>v</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+an is the number of variables in the function.
+This includes the independent variables, dependent variables,
+and any variables that are used to compute the dependent variables
+from the independent variables.
+
+<br>
+<br>
+<b><big><a name="size_op" id="size_op">size_op</a></big></b>
+<br>
+The return value has prototype
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>p</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+an is the number of atomic operations that are used to express
+the dependent variables as a function of the independent variables.
+
+
+<br>
+<br>
+<b><big><a name="Example" id="Example">Example</a></big></b>
+
+<br>
+<a href="a_fun_property_xam.cpp.htm" target="_top"><span style='white-space: nowrap'>C++</span></a>
+,
+<a href="a_fun_property_xam.m.htm" target="_top"><span style='white-space: nowrap'>Octave</span></a>
+,
+<a href="a_fun_property_xam.pm.htm" target="_top"><span style='white-space: nowrap'>Perl</span></a>
+,
+<a href="a_fun_property_xam.py.htm" target="_top"><span style='white-space: nowrap'>Python</span></a>
+.
+
+
+<hr>Input File: lib/a_fun.cpp
+
+</body>
+</html>

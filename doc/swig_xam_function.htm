@@ -1,0 +1,190 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Swig Example: C++ Function Specifications</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Swig Example: C++ Function Specifications">
+<meta name="keywords" id="keywords" content=" swig example: c++ function specifications prototypes factorial_by_value message_of_void add_by_ptr max_array_by_ptr max_std_vector_double raise_exception ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_swig_xam_function_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/cppad_swig" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="swig_xam.hpp.htm" target="_top">Prev</a>
+</td><td><a href="swig_xam_function.cpp.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>cppad_swig</option>
+<option>swig_xam.i</option>
+<option>swig_xam.hpp</option>
+<option>swig_xam_function</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>cppad_swig-&gt;</option>
+<option>testing</option>
+<option>swig_xam.i</option>
+<option>library</option>
+<option>whats_new_2018</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>swig_xam.i-&gt;</option>
+<option>swig_xam.hpp</option>
+<option>check_swig_xam.py</option>
+<option>check_swig_xam.m</option>
+<option>check_swig_xam.pl</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>swig_xam.hpp-&gt;</option>
+<option>swig_xam_function</option>
+<option>swig_xam_normal_class</option>
+<option>swig_xam_template_class</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down0(this)'>
+<option>swig_xam_function-&gt;</option>
+<option>swig_xam_function.cpp</option>
+</select>
+</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Prototypes</option>
+<option>factorial_by_value</option>
+<option>message_of_void</option>
+<option>add_by_ptr</option>
+<option>max_array_by_ptr</option>
+<option>max_std_vector_double</option>
+<option>raise_exception</option>
+<option>Contents</option>
+</select>
+</td>
+</tr></table><br>
+@(@\newcommand{\B}[1]{ {\bf #1} }
+\newcommand{\R}[1]{ {\rm #1} }@)@<center><b><big><big>Swig Example: C++ Function Specifications</big></big></b></center>
+<br>
+<b><big><a name="Prototypes" id="Prototypes">Prototypes</a></big></b>
+
+<pre><tt>
+<font color="#009900">int</font>         <b><font color="#000000">factorial_by_value</font></b><font color="#990000">(</font><font color="#009900">int</font> n<font color="#990000">);</font>
+<b><font color="#0000FF">const</font></b> <font color="#009900">char</font><font color="#990000">*</font> <b><font color="#000000">message_of_void</font></b><font color="#990000">();</font>
+<font color="#009900">void</font>        <b><font color="#000000">add_by_ptr</font></b><font color="#990000">(</font><font color="#009900">int</font> x<font color="#990000">,</font> <font color="#009900">int</font> y<font color="#990000">,</font> <font color="#009900">int</font><font color="#990000">*</font> result<font color="#990000">);</font>
+<font color="#009900">int</font>         <b><font color="#000000">max_array_by_ptr</font></b><font color="#990000">(</font><font color="#009900">int</font> n<font color="#990000">,</font> <b><font color="#0000FF">const</font></b> <font color="#009900">int</font><font color="#990000">*</font> x<font color="#990000">);</font>
+<font color="#009900">double</font>      <b><font color="#000000">max_std_vector_double</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> std<font color="#990000">::</font>vector<font color="#990000">&lt;</font><font color="#009900">double</font><font color="#990000">&gt;&amp;</font> x<font color="#990000">);</font>
+<b><font color="#0000FF">const</font></b> <font color="#009900">char</font><font color="#990000">*</font> <b><font color="#000000">raise_exception</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> <font color="#009900">char</font><font color="#990000">*</font> message<font color="#990000">);</font></tt></pre>
+<br>
+<b><big><a name="factorial_by_value" id="factorial_by_value">factorial_by_value</a></big></b>
+<br>
+The return value is the factorial of the argument 
+<code><i><font color="black"><span style='white-space: nowrap'>n</span></font></i></code>
+.
+
+<br>
+<br>
+<b><big><a name="message_of_void" id="message_of_void">message_of_void</a></big></b>
+<br>
+The return value is the text <code><font color="blue">OK</font></code>.
+
+<br>
+<br>
+<b><big><a name="add_by_ptr" id="add_by_ptr">add_by_ptr</a></big></b>
+<br>
+The input value of 
+<code><i><font color="black"><span style='white-space: nowrap'>result</span></font></i></code>
+ does not matter.
+Upon return 
+<code><i><font color="black"><span style='white-space: nowrap'>result</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>x</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;+&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>y</span></font></i></code>
+.
+
+<br>
+<br>
+<b><big><a name="max_array_by_ptr" id="max_array_by_ptr">max_array_by_ptr</a></big></b>
+<br>
+The array 
+<code><i><font color="black"><span style='white-space: nowrap'>x</span></font></i></code>
+ has length 
+<code><i><font color="black"><span style='white-space: nowrap'>n</span></font></i></code>
+ and the return value
+is the maximum of the elements of 
+<code><i><font color="black"><span style='white-space: nowrap'>x</span></font></i></code>
+.
+
+<br>
+<br>
+<b><big><a name="max_std_vector_double" id="max_std_vector_double">max_std_vector_double</a></big></b>
+<br>
+The return value is the maximum of the elements of 
+<code><i><font color="black"><span style='white-space: nowrap'>x</span></font></i></code>
+.
+
+<br>
+<br>
+<b><big><a name="raise_exception" id="raise_exception">raise_exception</a></big></b>
+<br>
+It 
+<code><i><font color="black"><span style='white-space: nowrap'>message</span></font></i></code>
+ is the empty C string,
+the return value is the string corresponding to the previous
+call to <code><font color="blue">raise_exception</font></code> when 
+<code><i><font color="black"><span style='white-space: nowrap'>message</span></font></i></code>
+ was non-empty.
+If 
+<code><i><font color="black"><span style='white-space: nowrap'>message</span></font></i></code>
+ is non-empty,
+the message is store, so it can be retrieved later,
+and the following exception is thrown:
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;std::runtime_error(&nbsp;std::string(&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>message</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;)&nbsp;);<br>
+</span></font></code>
+The message storage is done using a static variable and hence is
+not thread safe.
+
+<br>
+<br>
+<b><big><a name="Contents" id="Contents">Contents</a></big></b>
+<br>
+<table>
+<tr><td><a href="swig_xam_function.cpp.htm" target="_top">swig_xam_function.cpp</a></td><td>Swig&nbsp;Example:&nbsp;C++&nbsp;Function&nbsp;Implementation</td></tr></table>
+<hr>Input File: swig_xam/swig_xam.hpp
+
+</body>
+</html>

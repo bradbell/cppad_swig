@@ -1,0 +1,144 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Octave: a_double Unary Functions with AD Result: Example and Test</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Octave: a_double Unary Functions with AD Result: Example and Test">
+<meta name="keywords" id="keywords" content=" octave: a_double unary functions with ad result: example test ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_a_double_unary_fun_xam.m_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/cppad_swig" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="a_double_unary_fun_xam.cpp.htm" target="_top">Prev</a>
+</td><td><a href="a_double_unary_fun_xam.pm.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>cppad_swig</option>
+<option>library</option>
+<option>a_double</option>
+<option>a_double_unary_fun</option>
+<option>a_double_unary_fun_xam.m</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down4(this)'>
+<option>cppad_swig-&gt;</option>
+<option>testing</option>
+<option>swig_xam.i</option>
+<option>library</option>
+<option>whats_new_2018</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>library-&gt;</option>
+<option>module</option>
+<option>a_double</option>
+<option>vector</option>
+<option>a_fun</option>
+<option>sparse</option>
+<option>error</option>
+<option>xam.m4</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>a_double-&gt;</option>
+<option>a_double_ctor</option>
+<option>a_double_unary_op</option>
+<option>a_double_property</option>
+<option>a_double_ad_binary</option>
+<option>a_double_compare</option>
+<option>a_double_assign</option>
+<option>a_double_unary_fun</option>
+<option>a_double_cond_assign</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>a_double_unary_fun-&gt;</option>
+<option>a_double_unary_fun_xam.cpp</option>
+<option>a_double_unary_fun_xam.m</option>
+<option>a_double_unary_fun_xam.pm</option>
+<option>a_double_unary_fun_xam.py</option>
+</select>
+</td>
+<td>a_double_unary_fun_xam.m</td>
+<td>Headings</td>
+</tr></table><br>
+@(@\newcommand{\B}[1]{ {\bf #1} }
+\newcommand{\R}[1]{ {\rm #1} }@)@<center><b><big><big>Octave: a_double Unary Functions with AD Result: Example and Test</big></big></b></center>
+<pre><tt><i><font color="#9A1900">% This test fails in Octave and so is skipped by make check_lib_octave</font></i>
+<b><font color="#0000FF">function</font></b> ok = <b><font color="#000000">a_double_unary_fun_xam</font></b>()
+     <i><font color="#9A1900">%</font></i>
+     <i><font color="#9A1900">% load the Cppad Swig library</font></i>
+     m_cppad
+     <i><font color="#9A1900">%</font></i>
+     <i><font color="#9A1900">% initialize return variable</font></i>
+     ok = true;
+     <i><font color="#9A1900">% -----------------------------------------------------------------------</font></i>
+     <i><font color="#9A1900">%</font></i>
+     <i><font color="#9A1900">% fabs</font></i>
+     one = m_cppad.<b><font color="#000000">a_double</font></b>(1.0);
+     abs_one = one.<b><font color="#000000">fabs</font></b>();
+     ok = ok &amp;&amp; abs_one.<b><font color="#000000">value</font></b>() == 1.0;
+     <i><font color="#9A1900">%</font></i>
+     <i><font color="#9A1900">% pi/4</font></i>
+     pi_4 = one.<b><font color="#000000">atan</font></b>();
+     <i><font color="#9A1900">%</font></i>
+     <i><font color="#9A1900">% sqrt(2)</font></i>
+     tmp = m_cppad.<b><font color="#000000">a_double</font></b>(2.0);
+     r2 = tmp.<b><font color="#000000">sqrt</font></b>();
+     <i><font color="#9A1900">%</font></i>
+     <i><font color="#9A1900">% sin(pi/4)  * sqrt(2) = 1.0;</font></i>
+     tmp = r2 * pi_4.<b><font color="#000000">sin</font></b>() ;
+     ok = ok &amp;&amp; tmp.<b><font color="#000000">near_equal</font></b>(one) ;
+     <i><font color="#9A1900">%</font></i>
+     <i><font color="#9A1900">% cos(pi/4)  * sqrt(2) = 1.0;</font></i>
+     tmp = r2 * pi_4.<b><font color="#000000">cos</font></b>() ;
+     ok = ok &amp;&amp; tmp.<b><font color="#000000">near_equal</font></b>(one) ;
+     <i><font color="#9A1900">%</font></i>
+     <i><font color="#9A1900">% tan(pi/4)  = 1.0;</font></i>
+     tmp = pi_4.<b><font color="#000000">tan</font></b>() ;
+     ok = ok &amp;&amp; tmp.<b><font color="#000000">near_equal</font></b>(one) ;
+     <i><font color="#9A1900">%</font></i>
+     <b><font color="#0000FF">return</font></b>;
+<b><font color="#0000FF">end</font></b></tt></pre>
+
+<hr>Input File: build/lib/example/octave/a_double_unary_fun_xam.m
+
+</body>
+</html>

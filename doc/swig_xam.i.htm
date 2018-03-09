@@ -1,0 +1,231 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Example Using Swig with C++</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Example Using Swig with C++">
+<meta name="keywords" id="keywords" content=" example using swig with c++ includes py_swig_xam m_swig_xam pl_swig_xam exception int_class int_array_ptr int_array_class vector_double swig_xam.hpp double_class ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_swig_xam.i_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/cppad_swig" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="run_cmake.sh.htm" target="_top">Prev</a>
+</td><td><a href="swig_xam.hpp.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>cppad_swig</option>
+<option>swig_xam.i</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>cppad_swig-&gt;</option>
+<option>testing</option>
+<option>swig_xam.i</option>
+<option>library</option>
+<option>whats_new_2018</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down0(this)'>
+<option>swig_xam.i-&gt;</option>
+<option>swig_xam.hpp</option>
+<option>check_swig_xam.py</option>
+<option>check_swig_xam.m</option>
+<option>check_swig_xam.pl</option>
+</select>
+</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>C++ Includes</option>
+<option>py_swig_xam</option>
+<option>m_swig_xam</option>
+<option>pl_swig_xam</option>
+<option>exception</option>
+<option>int_class</option>
+<option>int_array_ptr</option>
+<option>int_array_class</option>
+<option>vector_double</option>
+<option>swig_xam.hpp</option>
+<option>double_class</option>
+<option>Contents</option>
+</select>
+</td>
+</tr></table><br>
+@(@\newcommand{\B}[1]{ {\bf #1} }
+\newcommand{\R}[1]{ {\rm #1} }@)@
+
+
+<center><b><big><big>Example Using Swig with C++</big></big></b></center>
+<br>
+<b><big><a name="C++ Includes" id="C++ Includes">C++ Includes</a></big></b>
+<br>
+This include file defines the interface to the C++ object library.
+<code><font color='blue'><pre style='display:inline'> 
+%{
+# include &quot;swig_xam.hpp&quot;
+%}
+</pre></font></code>
+see <a href="swig_xam.hpp.htm" target="_top"><span style='white-space: nowrap'>swig_xam.hpp</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="py_swig_xam" id="py_swig_xam">py_swig_xam</a></big></b>
+<br>
+This is the name of the Python Swig interface to the C++ library.
+<code><font color='blue'><pre style='display:inline'> 
+# ifdef SWIGPYTHON
+%module py_swig_xam
+# endif
+</pre></font></code>
+see <a href="check_swig_xam.py.htm" target="_top"><span style='white-space: nowrap'>check_swig_xam.py</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="m_swig_xam" id="m_swig_xam">m_swig_xam</a></big></b>
+<br>
+This is the name of the Octave Swig interface to the C++ library.
+<code><font color='blue'><pre style='display:inline'> 
+# ifdef SWIGOCTAVE
+%module m_swig_xam
+# endif
+</pre></font></code>
+see <a href="check_swig_xam.m.htm" target="_top"><span style='white-space: nowrap'>check_swig_xam.m</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="pl_swig_xam" id="pl_swig_xam">pl_swig_xam</a></big></b>
+<br>
+This is the name of the Perl Swig interface to the C++ library.
+<code><font color='blue'><pre style='display:inline'> 
+# ifdef SWIGPERL
+%module pl_swig_xam
+# endif
+</pre></font></code>
+see <a href="check_swig_xam.pl.htm" target="_top"><span style='white-space: nowrap'>check_swig_xam.pl</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="exception" id="exception">exception</a></big></b>
+<br>
+The following standard exceptions can be thrown by the C++ code
+and caught by the target language code:
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;std::exception::runtime_error(const&nbsp;std::string&amp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>what</span></font></i><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>
+<code><font color='blue'><pre style='display:inline'> 
+%include exception.i
+%exception {
+   try {
+        $action
+    } catch (std::runtime_error&amp; e) {
+        SWIG_exception(SWIG_RuntimeError, const_cast&lt;char*&gt;( e.what() ) );
+    }
+}
+</pre></font></code>
+<br>
+<b><big><a name="int_class" id="int_class">int_class</a></big></b>
+<br>
+This is a Swig interface to a an integer value.
+<code><font color='blue'><pre style='display:inline'> 
+%include &quot;cpointer.i&quot;
+%pointer_class(int, int_class);
+</pre></font></code>
+<br>
+<b><big><a name="int_array_ptr" id="int_array_ptr">int_array_ptr</a></big></b>
+<br>
+This is a Swig interface to a pointer to an array of integer values.
+<code><font color='blue'><pre style='display:inline'> 
+%include &quot;carrays.i&quot;
+%array_functions(int, int_array_ptr);
+</pre></font></code>
+<br>
+<b><big><a name="int_array_class" id="int_array_class">int_array_class</a></big></b>
+<br>
+This is a Swig interface to a pointer to an integer array class
+<code><font color='blue'><pre style='display:inline'> 
+%array_class(int, int_array_class);
+</pre></font></code>
+<br>
+<b><big><a name="vector_double" id="vector_double">vector_double</a></big></b>
+<br>
+This is a Swig interface to a 
+<code><font color="blue"><span style='white-space: nowrap'>std::vector&lt;</span></font><i><font color="black"><span style='white-space: nowrap'>Type</span></font></i><font color="blue"><span style='white-space: nowrap'>&gt;</span></font></code>
+
+where 
+<code><i><font color="black"><span style='white-space: nowrap'>Type</span></font></i></code>
+ is <code><font color="blue">double</font></code>.
+<code><font color='blue'><pre style='display:inline'> 
+%include &quot;std_vector.i&quot;
+%template(vector_double) std::vector&lt;double&gt;;
+</pre></font></code>
+<br>
+<b><big><a name="swig_xam.hpp" id="swig_xam.hpp">swig_xam.hpp</a></big></b>
+<br>
+This include file defines the normal functions and normal classes interfaces
+that are part of this Swig example.
+<code><font color='blue'><pre style='display:inline'> 
+%include &quot;swig_xam.hpp&quot;
+</pre></font></code>
+<br>
+<b><big><a name="double_class" id="double_class">double_class</a></big></b>
+<br>
+This is a Swig interface to a 
+<code><font color="blue"><span style='white-space: nowrap'>template_class&lt;</span></font><i><font color="black"><span style='white-space: nowrap'>Type</span></font></i><font color="blue"><span style='white-space: nowrap'>&gt;</span></font></code>
+
+where <a href="swig_xam_template_class.htm#Type" target="_top"><span style='white-space: nowrap'>Type</span></a>
+ is <code><font color="blue">double</font></code>.
+Note that it uses <a href="swig_xam_template_class.htm" target="_top"><span style='white-space: nowrap'>template_class</span></a>
+
+which is defined as part of <code><font color="blue">swig_xam.hpp</font></code>.
+<code><font color='blue'><pre style='display:inline'> 
+%template(double_class)  template_class&lt;double&gt;;
+</pre></font></code>
+<br>
+<b><big><a name="Contents" id="Contents">Contents</a></big></b>
+<br>
+<table>
+<tr><td><a href="swig_xam.hpp.htm" target="_top">swig_xam.hpp</a></td><td>Example&nbsp;C++&nbsp;Library&nbsp;That&nbsp;is&nbsp;Called&nbsp;by&nbsp;Swig</td></tr><tr><td><a href="check_swig_xam.py.htm" target="_top">check_swig_xam.py</a></td><td>Swig&nbsp;Example&nbsp;/&nbsp;Test:&nbsp;Python&nbsp;Script</td></tr><tr><td><a href="check_swig_xam.m.htm" target="_top">check_swig_xam.m</a></td><td>Swig&nbsp;Example&nbsp;/&nbsp;Test:&nbsp;Octave&nbsp;Script</td></tr><tr><td><a href="check_swig_xam.pl.htm" target="_top">check_swig_xam.pl</a></td><td>Swig&nbsp;Example&nbsp;/&nbsp;Test:&nbsp;Perl&nbsp;Script</td></tr></table>
+<hr>Input File: swig_xam/swig_xam.i
+
+</body>
+</html>

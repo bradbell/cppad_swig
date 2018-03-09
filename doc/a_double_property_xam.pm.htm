@@ -1,0 +1,132 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Perl: a_double Properties: Example and Test</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Perl: a_double Properties: Example and Test">
+<meta name="keywords" id="keywords" content=" perl: a_double properties: example test ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_a_double_property_xam.pm_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/cppad_swig" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="a_double_property_xam.m.htm" target="_top">Prev</a>
+</td><td><a href="a_double_property_xam.py.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>cppad_swig</option>
+<option>library</option>
+<option>a_double</option>
+<option>a_double_property</option>
+<option>a_double_property_xam.pm</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down4(this)'>
+<option>cppad_swig-&gt;</option>
+<option>testing</option>
+<option>swig_xam.i</option>
+<option>library</option>
+<option>whats_new_2018</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>library-&gt;</option>
+<option>module</option>
+<option>a_double</option>
+<option>vector</option>
+<option>a_fun</option>
+<option>sparse</option>
+<option>error</option>
+<option>xam.m4</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>a_double-&gt;</option>
+<option>a_double_ctor</option>
+<option>a_double_unary_op</option>
+<option>a_double_property</option>
+<option>a_double_ad_binary</option>
+<option>a_double_compare</option>
+<option>a_double_assign</option>
+<option>a_double_unary_fun</option>
+<option>a_double_cond_assign</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>a_double_property-&gt;</option>
+<option>a_double_property_xam.cpp</option>
+<option>a_double_property_xam.m</option>
+<option>a_double_property_xam.pm</option>
+<option>a_double_property_xam.py</option>
+</select>
+</td>
+<td>a_double_property_xam.pm</td>
+<td>Headings</td>
+</tr></table><br>
+@(@\newcommand{\B}[1]{ {\bf #1} }
+\newcommand{\R}[1]{ {\rm #1} }@)@<center><b><big><big>Perl: a_double Properties: Example and Test</big></big></b></center>
+<pre><tt><b><font color="#0000FF">package</font></b> a_double_property_xam<font color="#990000">;</font>
+<b><font color="#0000FF">sub</font></b> <b><font color="#000000">a_double_property_xam</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+     <i><font color="#9A1900"># check for standard perl programming conventions</font></i>
+     <b><font color="#0000FF">use</font></b> strict<font color="#990000">;</font>
+     <b><font color="#0000FF">use</font></b> warnings<font color="#990000">;</font>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># load the Cppad Swig library</font></i>
+     <b><font color="#0000FF">use</font></b> pm_cppad<font color="#990000">;</font>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># initilaize return variable</font></i>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$ok</font> <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font>
+     <i><font color="#9A1900"># ---------------------------------------------------------------------</font></i>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$three</font> <font color="#990000">=</font> new pm_cppad<font color="#990000">::</font><b><font color="#000000">a_double</font></b><font color="#990000">(</font><font color="#993399">3.0</font><font color="#990000">);</font>
+     <i><font color="#9A1900">#</font></i>
+     <font color="#009900">$ok</font> <font color="#990000">=</font> <font color="#009900">$ok</font> <font color="#990000">&amp;&amp;</font> <font color="#009900">$three</font><font color="#990000">-&gt;</font><b><font color="#000000">value</font></b><font color="#990000">()</font>   <font color="#990000">==</font> <font color="#993399">3.0</font><font color="#990000">;</font>
+     <font color="#009900">$ok</font> <font color="#990000">=</font> <font color="#009900">$ok</font> <font color="#990000">&amp;&amp;</font> <font color="#009900">$three</font><font color="#990000">-&gt;</font><b><font color="#000000">parameter</font></b><font color="#990000">();</font>
+     <font color="#009900">$ok</font> <font color="#990000">=</font> <font color="#009900">$ok</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">!</font> <font color="#009900">$three</font><font color="#990000">-&gt;</font><b><font color="#000000">variable</font></b><font color="#990000">();</font>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># near_equal</font></i>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$r3</font> <font color="#990000">=</font> <font color="#009900">$three</font><font color="#990000">-&gt;</font><b><font color="#0000FF">sqrt</font></b><font color="#990000">()</font> <font color="#990000">;</font>
+     <font color="#009900">$ok</font> <font color="#990000">=</font> <font color="#009900">$ok</font> <font color="#990000">&amp;&amp;</font> <font color="#009900">$three</font><font color="#990000">-&gt;</font><b><font color="#000000">near_equal</font></b><font color="#990000">(</font> <font color="#009900">$r3</font> <font color="#990000">*</font> <font color="#009900">$r3</font><font color="#990000">)</font> <font color="#990000">;;</font>
+     <i><font color="#9A1900">#</font></i>
+     <b><font color="#0000FF">return</font></b><font color="#990000">(</font> <font color="#009900">$ok</font> <font color="#990000">);</font>
+<font color="#FF0000">}</font></tt></pre>
+
+<hr>Input File: build/lib/example/perl/a_double_property_xam.pm
+
+</body>
+</html>

@@ -1,0 +1,182 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Exception Handling</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Exception Handling">
+<meta name="keywords" id="keywords" content=" exception handling syntax try block catch cppad errors not thread safe example ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_error_message_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/cppad_swig" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="error.htm" target="_top">Prev</a>
+</td><td><a href="error_message_xam.cpp.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>cppad_swig</option>
+<option>library</option>
+<option>error</option>
+<option>error_message</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>cppad_swig-&gt;</option>
+<option>testing</option>
+<option>swig_xam.i</option>
+<option>library</option>
+<option>whats_new_2018</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>library-&gt;</option>
+<option>module</option>
+<option>a_double</option>
+<option>vector</option>
+<option>a_fun</option>
+<option>sparse</option>
+<option>error</option>
+<option>xam.m4</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>error-&gt;</option>
+<option>error_message</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down0(this)'>
+<option>error_message-&gt;</option>
+<option>error_message_xam.cpp</option>
+<option>error_message_xam.m</option>
+<option>error_message_xam.pm</option>
+<option>error_message_xam.py</option>
+</select>
+</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>In Try Block</option>
+<option>---..exception</option>
+<option>In Catch Block</option>
+<option>Cppad Errors</option>
+<option>Not Thread Safe</option>
+<option>Example</option>
+</select>
+</td>
+</tr></table><br>
+@(@\newcommand{\B}[1]{ {\bf #1} }
+\newcommand{\R}[1]{ {\rm #1} }@)@<center><b><big><big>Exception Handling</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><i><font color="black"><span style='white-space: nowrap'>stored_message</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;error_message(</span></font><i><font color="black"><span style='white-space: nowrap'>input_message</span></font></i><font color="blue"><span style='white-space: nowrap'>)</span></font></code>
+
+
+<br>
+<br>
+<b><big><a name="In Try Block" id="In Try Block">In Try Block</a></big></b>
+<br>
+If 
+<code><i><font color="black"><span style='white-space: nowrap'>input_message</span></font></i></code>
+ is <b>not</b> the empty string,
+it is stored in <code><font color="blue">error_message</font></code> and an exception is thrown.
+This is intended to be done inside a <code><font color="blue">try</font></code> block.
+
+<br>
+<br>
+<b><a name="In Try Block.exception" id="In Try Block.exception">exception</a></b>
+<br>
+The type of the exception is <code><font color="blue">std::runtime_error</font></code>
+which is derived from <code><font color="blue">std::exception</font></code>.
+If the standard exception <code><font color="blue">what()</font></code> is called,
+the return value will be the value of 
+<code><i><font color="black"><span style='white-space: nowrap'>input_message</span></font></i></code>
+
+when the exception was thrown.
+
+<br>
+<br>
+<b><big><a name="In Catch Block" id="In Catch Block">In Catch Block</a></big></b>
+<br>
+If 
+<code><i><font color="black"><span style='white-space: nowrap'>input_message</span></font></i></code>
+ is the empty string,
+the most recently stored message in <code><font color="blue">error_message</font></code> is returned.
+In addition, the message is deleted from <code><font color="blue">error_message</font></code>.
+If there are no more messages stored in <code><font color="blue">error_message</font></code>,
+the empty string is returned.
+This is intended to be done inside a <code><font color="blue">catch</font></code> block.
+
+<br>
+<br>
+<b><big><a name="Cppad Errors" id="Cppad Errors">Cppad Errors</a></big></b>
+<br>
+Calls to the Cppad error handler get mapped to a call
+to <code><font color="blue">error_message</font></code>.
+
+<br>
+<br>
+<b><big><a name="Not Thread Safe" id="Not Thread Safe">Not Thread Safe</a></big></b>
+<br>
+The message storage is done using static information in
+<code><font color="blue">error_message</font></code> and hence is not thread safe.
+
+
+<br>
+<br>
+<b><big><a name="Example" id="Example">Example</a></big></b>
+
+<br>
+<a href="error_message_xam.cpp.htm" target="_top"><span style='white-space: nowrap'>C++</span></a>
+,
+<a href="error_message_xam.m.htm" target="_top"><span style='white-space: nowrap'>Octave</span></a>
+,
+<a href="error_message_xam.pm.htm" target="_top"><span style='white-space: nowrap'>Perl</span></a>
+,
+<a href="error_message_xam.py.htm" target="_top"><span style='white-space: nowrap'>Python</span></a>
+.
+
+
+<hr>Input File: lib/error.cpp
+
+</body>
+</html>

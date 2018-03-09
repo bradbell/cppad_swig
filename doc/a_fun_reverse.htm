@@ -1,0 +1,329 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Reverse Mode AD</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Reverse Mode AD">
+<meta name="keywords" id="keywords" content=" reverse mode ad syntax af notation f(x) x(t) s y(t) t g(t) q yq xq example ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_a_fun_reverse_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/cppad_swig" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="a_fun_forward_xam.py.htm" target="_top">Prev</a>
+</td><td><a href="a_fun_reverse_xam.cpp.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>cppad_swig</option>
+<option>library</option>
+<option>a_fun</option>
+<option>a_fun_reverse</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>cppad_swig-&gt;</option>
+<option>testing</option>
+<option>swig_xam.i</option>
+<option>library</option>
+<option>whats_new_2018</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>library-&gt;</option>
+<option>module</option>
+<option>a_double</option>
+<option>vector</option>
+<option>a_fun</option>
+<option>sparse</option>
+<option>error</option>
+<option>xam.m4</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>a_fun-&gt;</option>
+<option>independent</option>
+<option>abort_recording</option>
+<option>a_fun_ctor</option>
+<option>a_fun_jacobian</option>
+<option>a_fun_hessian</option>
+<option>a_fun_forward</option>
+<option>a_fun_reverse</option>
+<option>a_fun_optimize</option>
+<option>a_fun_property</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down0(this)'>
+<option>a_fun_reverse-&gt;</option>
+<option>a_fun_reverse_xam.cpp</option>
+<option>a_fun_reverse_xam.m</option>
+<option>a_fun_reverse_xam.pm</option>
+<option>a_fun_reverse_xam.py</option>
+</select>
+</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>af</option>
+<option>Notation</option>
+<option>---..f(x)</option>
+<option>---..X(t), S</option>
+<option>---..Y(t), T</option>
+<option>---..G(T)</option>
+<option>q</option>
+<option>yq</option>
+<option>xq</option>
+<option>Example</option>
+</select>
+</td>
+</tr></table><br>
+@(@\newcommand{\B}[1]{ {\bf #1} }
+\newcommand{\R}[1]{ {\rm #1} }@)@
+
+
+<center><b><big><big>Reverse Mode AD</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><i><font color="black"><span style='white-space: nowrap'>xq</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>af</span></font></i><font color="blue"><span style='white-space: nowrap'>.reverse(</span></font><i><font color="black"><span style='white-space: nowrap'>q</span></font></i><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>yq</span></font></i><font color="blue"><span style='white-space: nowrap'>)</span></font></code>
+
+
+<br>
+<br>
+<b><big><a name="af" id="af">af</a></big></b>
+<br>
+This object has prototype
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a_fun&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>af</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+Note that it is effectively <code><font color="blue">const</font></code>,
+but some details that are not visible to the user may change,
+so it is not declared <code><font color="blue">const</font></code>.
+
+<br>
+<br>
+<b><big><a name="Notation" id="Notation">Notation</a></big></b>
+
+
+<br>
+<br>
+<b><a name="Notation.f(x)" id="Notation.f(x)">f(x)</a></b>
+<br>
+We use the notation <small>@(@
+f: \B{R}^n \rightarrow \B{R}^m
+@)@</small>
+for the function corresponding to 
+<code><i><font color="black"><span style='white-space: nowrap'>af</span></font></i></code>
+.
+Note that 
+<code><i><font color="black"><span style='white-space: nowrap'>n</span></font></i></code>
+ is the size of <a href="a_fun_ctor.htm#ax" target="_top"><span style='white-space: nowrap'>ax</span></a>
+
+and 
+<code><i><font color="black"><span style='white-space: nowrap'>m</span></font></i></code>
+ is the size of <a href="a_fun_ctor.htm#ay" target="_top"><span style='white-space: nowrap'>ay</span></a>
+
+in to the constructor for 
+<code><i><font color="black"><span style='white-space: nowrap'>af</span></font></i></code>
+.
+
+<br>
+<br>
+<b><a name="Notation.X(t), S" id="Notation.X(t), S">X(t), S</a></b>
+<br>
+This is the same function as
+<a href="a_fun_forward.htm#X(t)" target="_top"><span style='white-space: nowrap'>X(t)</span></a>
+ in the previous call to
+
+<code><i><font color="black"><span style='white-space: nowrap'>af</span></font></i><font color="blue"><span style='white-space: nowrap'>.forward</span></font></code>
+.
+We use <small>@(@
+S \in \B{R}^{n \times q}
+@)@</small> to denote the Taylor coefficients
+of <small>@(@
+X(t)
+@)@</small>.
+
+<br>
+<br>
+<b><a name="Notation.Y(t), T" id="Notation.Y(t), T">Y(t), T</a></b>
+<br>
+This is the same function as
+<a href="a_fun_forward.htm#Y(t)" target="_top"><span style='white-space: nowrap'>Y(t)</span></a>
+ in the previous call to
+
+<code><i><font color="black"><span style='white-space: nowrap'>af</span></font></i><font color="blue"><span style='white-space: nowrap'>.forward</span></font></code>
+.
+We use <small>@(@
+T \in \B{R}^{m \times q}
+@)@</small> to denote the Taylor coefficients
+of <small>@(@
+Y(t)
+@)@</small>.
+We also use the notation <small>@(@
+T(S)
+@)@</small> to express the fact that
+the Taylor coefficients for <small>@(@
+Y(t)
+@)@</small> are a function of the
+Taylor coefficients of <small>@(@
+X(t)
+@)@</small>.
+
+<br>
+<br>
+<b><a name="Notation.G(T)" id="Notation.G(T)">G(T)</a></b>
+<br>
+We use the notation <small>@(@
+G : \B{R}^{m \times p} \rightarrow \B{R}
+@)@</small>
+for a function that the calling routine chooses.
+
+<br>
+<br>
+<b><big><a name="q" id="q">q</a></big></b>
+<br>
+This argument has prototype
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>q</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+Its value is the number of the Taylor coefficient (for each variable)
+that we are computing the derivative with respect to.
+It must be greater than zero, and
+less than or equal 
+<code><i><font color="black"><span style='white-space: nowrap'>p</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;+&nbsp;1</span></font></code>
+,
+the number of Taylor coefficient stored in 
+<code><i><font color="black"><span style='white-space: nowrap'>af</span></font></i></code>
+.
+(The number of Taylor coefficients is equal to 
+<code><i><font color="black"><span style='white-space: nowrap'>p</span></font></i><font color="blue"><span style='white-space: nowrap'>+1</span></font></code>
+ where
+<a href="a_fun_forward.htm#p" target="_top"><span style='white-space: nowrap'>p</span></a>
+ is the order for the previous <code><font color="blue">forward</font></code>
+call using 
+<code><i><font color="black"><span style='white-space: nowrap'>af</span></font></i></code>
+.)
+
+<br>
+<br>
+<b><big><a name="yq" id="yq">yq</a></big></b>
+<br>
+This argument has prototype
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;vec_double&amp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>yq</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+and its size must be 
+<code><i><font color="black"><span style='white-space: nowrap'>m</span></font></i><font color="blue"><span style='white-space: nowrap'>*</span></font><i><font color="black"><span style='white-space: nowrap'>q</span></font></i></code>
+.
+For 
+<code><i><font color="black"><span style='white-space: nowrap'>0</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;&lt;=&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>i</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;&lt;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>m</span></font></i></code>
+ and 
+<code><i><font color="black"><span style='white-space: nowrap'>0</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;&lt;=&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>k</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;&lt;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>q</span></font></i></code>
+,
+
+<code><i><font color="black"><span style='white-space: nowrap'>yq</span></font></i><font color="blue"><span style='white-space: nowrap'>[&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>i</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;*&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>q</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;+&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>k</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;]</span></font></code>
+ is the partial derivative of
+<small>@(@
+G(T)
+@)@</small> with respect to the <code><i>k</i></code>-th order Taylor coefficient
+for the <code><i>i</i></code>-th component function; i.e.,
+the partial derivative of <small>@(@
+G(T)
+@)@</small> w.r.t. <small>@(@
+Y_i^{(k)} (t) / k !
+@)@</small>.
+
+<br>
+<br>
+<b><big><a name="xq" id="xq">xq</a></big></b>
+<br>
+The result has prototype
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vec_double&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>xq</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+and its size is 
+<code><i><font color="black"><span style='white-space: nowrap'>n</span></font></i><font color="blue"><span style='white-space: nowrap'>*</span></font><i><font color="black"><span style='white-space: nowrap'>q</span></font></i></code>
+.
+For 
+<code><i><font color="black"><span style='white-space: nowrap'>0</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;&lt;=&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>j</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;&lt;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>n</span></font></i></code>
+ and 
+<code><i><font color="black"><span style='white-space: nowrap'>0</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;&lt;=&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>k</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;&lt;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>q</span></font></i></code>
+,
+
+<code><i><font color="black"><span style='white-space: nowrap'>yq</span></font></i><font color="blue"><span style='white-space: nowrap'>[&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>j</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;*&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>q</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;+&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>k</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;]</span></font></code>
+ is the partial derivative of
+<small>@(@
+G(T(S))
+@)@</small> with respect to the <code><i>k</i></code>-th order Taylor coefficient
+for the <code><i>j</i></code>-th component function; i.e.,
+the partial derivative of
+<small>@(@
+G(T(S))
+@)@</small> w.r.t. <small>@(@
+S_j^{(k)} (t) / k !
+@)@</small>.
+
+
+<br>
+<br>
+<b><big><a name="Example" id="Example">Example</a></big></b>
+
+<br>
+<a href="a_fun_reverse_xam.cpp.htm" target="_top"><span style='white-space: nowrap'>C++</span></a>
+,
+<a href="a_fun_reverse_xam.m.htm" target="_top"><span style='white-space: nowrap'>Octave</span></a>
+,
+<a href="a_fun_reverse_xam.pm.htm" target="_top"><span style='white-space: nowrap'>Perl</span></a>
+,
+<a href="a_fun_reverse_xam.py.htm" target="_top"><span style='white-space: nowrap'>Python</span></a>
+.
+
+
+
+<hr>Input File: lib/a_fun.cpp
+
+</body>
+</html>

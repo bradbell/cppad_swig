@@ -1,0 +1,195 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>M4 Macro That Include Omhelp to Display Source Code</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="M4 Macro That Include Omhelp to Display Source Code">
+<meta name="keywords" id="keywords" content=" m4 macro that include omhelp to display source code syntax functionname_ omhelp_title omhelp_tag assumption lang_m4 lang_file_name formatting ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_omhelp.m4_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/cppad_swig" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="lang_name.m4.htm" target="_top">Prev</a>
+</td><td><a href="whats_new_2018.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>cppad_swig</option>
+<option>library</option>
+<option>xam.m4</option>
+<option>omhelp.m4</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>cppad_swig-&gt;</option>
+<option>testing</option>
+<option>swig_xam.i</option>
+<option>library</option>
+<option>whats_new_2018</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>library-&gt;</option>
+<option>module</option>
+<option>a_double</option>
+<option>vector</option>
+<option>a_fun</option>
+<option>sparse</option>
+<option>error</option>
+<option>xam.m4</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>xam.m4-&gt;</option>
+<option>lang_m4</option>
+<option>xam_file_name.m4</option>
+<option>header.m4</option>
+<option>lang_name.m4</option>
+<option>omhelp.m4</option>
+</select>
+</td>
+<td>omhelp.m4</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>FunctionName_</option>
+<option>Omhelp_title</option>
+<option>Omhelp_tag</option>
+<option>Assumption</option>
+<option>---..lang_m4</option>
+<option>---..lang_file_name</option>
+<option>---..Formatting</option>
+</select>
+</td>
+</tr></table><br>
+@(@\newcommand{\B}[1]{ {\bf #1} }
+\newcommand{\R}[1]{ {\rm #1} }@)@ 
+
+
+<center><b><big><big>M4 Macro That Include Omhelp to Display Source Code</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>Omhelp_(</span></font><i><font color="black"><span style='white-space: nowrap'>FunctionName_</span></font></i><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>Omhelp_title</span></font></i><font color="blue"><span style='white-space: nowrap'>)</span></font></code>
+
+
+<br>
+<br>
+<b><big><a name="FunctionName_" id="FunctionName_">FunctionName_</a></big></b>
+<br>
+is the name of function corresponding to this output file; see
+<a href="xam_file_name.m4.htm#FunctionName_" target="_top"><span style='white-space: nowrap'>FunctionName_</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="Omhelp_title" id="Omhelp_title">Omhelp_title</a></big></b>
+<br>
+is the title of this Omhelp section that displays this source code.
+
+<br>
+<br>
+<b><big><a name="Omhelp_tag" id="Omhelp_tag">Omhelp_tag</a></big></b>
+<br>
+The Omhelp cross reference tag that will be used for this section is
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>name_xam</span></font></i><font color="blue"><span style='white-space: nowrap'>.</span></font><i><font color="black"><span style='white-space: nowrap'>ext</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+where 
+<code><i><font color="black"><span style='white-space: nowrap'>ext</span></font></i></code>
+ is the file extension used for the
+current language.
+
+
+<br>
+<br>
+<b><big><a name="Assumption" id="Assumption">Assumption</a></big></b>
+
+
+<br>
+<br>
+<b><a name="Assumption.lang_m4" id="Assumption.lang_m4">lang_m4</a></b>
+<br>
+It is assumed that the macros in <a href="lang_m4.htm" target="_top"><span style='white-space: nowrap'>lang_m4</span></a>
+ have been
+set for the <a href="xam.m4.htm#language" target="_top"><span style='white-space: nowrap'>language</span></a>
+
+that the output corresponds to.
+
+<br>
+<br>
+<b><a name="Assumption.lang_file_name" id="Assumption.lang_file_name">lang_file_name</a></b>
+<br>
+The name of the source code file where the current output is placed
+is assumed to be
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;build/lib/example/</span></font><i><font color="black"><span style='white-space: nowrap'>language</span></font></i><font color="blue"><span style='white-space: nowrap'>/</span></font><i><font color="black"><span style='white-space: nowrap'>lang_file_name</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+see <a href="xam.m4.htm#language" target="_top"><span style='white-space: nowrap'>language</span></a>
+ and
+<a href="xam_file_name.m4.htm#lang_file_name" target="_top"><span style='white-space: nowrap'>lang_file_name</span></a>
+.
+
+<br>
+<br>
+<b><a name="Assumption.Formatting" id="Assumption.Formatting">Formatting</a></b>
+<br>
+Let 
+<code><i><font color="black"><span style='white-space: nowrap'>source&nbsp;code</span></font></i></code>
+ denote the language specific source code
+and 
+<code><i><font color="black"><span style='white-space: nowrap'>comment</span></font></i></code>
+ denote the commenting characters.
+The input file is assumed to have the following format / order:
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>comment</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;BEGIN&nbsp;SOURCE<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>source&nbsp;code</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>comment</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;END&nbsp;SOURCE<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Omhelp_(</span></font><i><font color="black"><span style='white-space: nowrap'>name_xam</span></font></i><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>Omhelp_title</span></font></i><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>
+
+<hr>Input File: lib/xam/omhelp.m4
+
+</body>
+</html>

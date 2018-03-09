@@ -1,0 +1,327 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Cppad Swig Changes During 2017</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Cppad Swig Changes During 2017">
+<meta name="keywords" id="keywords" content=" cppad swig changes during 2017 02-16 02-25 02-24 02-23 02-22 02-21 02-20 01-18 01-17 01-16 01-15 01-14 01-13 01-12 01-11 01-10 ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_whats_new_2017_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/cppad_swig" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="whats_new_2018.htm" target="_top">Prev</a>
+</td><td><a href="_reference.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>cppad_swig</option>
+<option>whats_new_2018</option>
+<option>whats_new_2017</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>cppad_swig-&gt;</option>
+<option>testing</option>
+<option>swig_xam.i</option>
+<option>library</option>
+<option>whats_new_2018</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>whats_new_2018-&gt;</option>
+<option>whats_new_2017</option>
+</select>
+</td>
+<td>whats_new_2017</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>02-16</option>
+<option>02-25</option>
+<option>02-24</option>
+<option>02-23</option>
+<option>02-22</option>
+<option>02-21</option>
+<option>02-20</option>
+<option>01-18</option>
+<option>01-17</option>
+<option>01-16</option>
+<option>01-15</option>
+<option>01-14</option>
+<option>01-13</option>
+<option>01-12</option>
+<option>01-11</option>
+<option>01-10</option>
+</select>
+</td>
+</tr></table><br>
+@(@\newcommand{\B}[1]{ {\bf #1} }
+\newcommand{\R}[1]{ {\rm #1} }@)@
+
+
+<center><b><big><big>Cppad Swig Changes During 2017</big></big></b></center>
+<br>
+<b><big><a name="02-16" id="02-16">02-16</a></big></b>
+<br>
+Advance to <code><font color="blue">cppad-20170226</font></code>
+This avoids a warning about WIN32 during the <a href="run_cmake.sh.htm" target="_top"><span style='white-space: nowrap'>run_cmake.sh</span></a>
+ command
+(while getting current version of Cppad on Cygwin systems).
+
+
+<br>
+<br>
+<b><big><a name="02-25" id="02-25">02-25</a></big></b>
+
+<ol type="1"><li>
+Add calculation of sparse Jacobians and Hessians;
+see <a href="sparse_jac.htm" target="_top"><span style='white-space: nowrap'>sparse_jac</span></a>
+ and <a href="sparse_hes.htm" target="_top"><span style='white-space: nowrap'>sparse_hes</span></a>
+.
+</li><li>
+
+Fix some documentation references to <code><font color="blue">model_ref</font></code> that should have been
+<a href="module.htm#module_ref" target="_top"><span style='white-space: nowrap'>module_ref</span></a>
+.
+</li></ol>
+
+
+<br>
+<br>
+<b><big><a name="02-24" id="02-24">02-24</a></big></b>
+
+<ol type="1"><li>
+Add calculation of Jacobian sparsity <a href="jac_sparsity.htm" target="_top"><span style='white-space: nowrap'>jac_sparsity</span></a>
+
+and Hessian sparsity <a href="hes_sparsity.htm" target="_top"><span style='white-space: nowrap'>hes_sparsity</span></a>
+.
+</li><li>
+
+Improve the documentation and examples for <a href="vector.htm" target="_top"><span style='white-space: nowrap'>vectors</span></a>
+.
+In addition,
+add <a href="vector_ctor.htm#vec_bool" target="_top"><span style='white-space: nowrap'>vec_bool</span></a>
+ to the list of vector types
+</li></ol>
+
+
+<br>
+<br>
+<b><big><a name="02-23" id="02-23">02-23</a></big></b>
+<br>
+Fix Cygwin version of 
+<code><font color="blue"><span style='white-space: nowrap'>make&nbsp;check_lib_</span></font><i><font color="black"><span style='white-space: nowrap'>lang</span></font></i></code>
+ for 
+<code><i><font color="black"><span style='white-space: nowrap'>lang</span></font></i></code>
+ equal to
+<code><font color="blue">python</font></code> and <code><font color="blue">perl</font></code>. (The execution path needs to include
+the directory where the <code><font color="blue">cppad_swig_lib</font></code> Dll is located.)
+This make command is still not working on Cygwin when
+
+<code><i><font color="black"><span style='white-space: nowrap'>lang</span></font></i></code>
+ is <code><font color="blue">octave</font></code>.
+
+<br>
+<br>
+<b><big><a name="02-22" id="02-22">02-22</a></big></b>
+<br>
+The command <code><font color="blue">make check_lib__perl</font></code>
+was not working on Cygwin because of an error in
+<code><font color="blue">lib/example/perl/CMakeLists.txt</font></code>.
+This has been fixed (but is still not working on Cygwin).
+
+<br>
+<br>
+<b><big><a name="02-21" id="02-21">02-21</a></big></b>
+<br>
+Add the <a href="cppad_swig.htm#Supporting Packages" target="_top"><span style='white-space: nowrap'>supporting&nbsp;packages</span></a>
+
+heading to aid the install procedure.
+
+<br>
+<br>
+<b><big><a name="02-20" id="02-20">02-20</a></big></b>
+
+<ol type="1"><li>
+Change all the <code><font color="blue">size_t</font></code> variables in the interface to by
+<code><font color="blue">int</font></code> (this seems to work better in Swig).
+For example
+<a href="a_fun_forward.htm#p" target="_top"><span style='white-space: nowrap'>p</span></a>
+ is not an <code><font color="blue">int</font></code> instead of <code><font color="blue">size_t</font></code>.
+</li><li>
+
+Added class for sparsity patterns <a href="sparse_rc.htm" target="_top"><span style='white-space: nowrap'>sparse_rc</span></a>
+
+(not yet hooked up to sparsity calculations).
+</li></ol>
+
+
+<br>
+<br>
+<b><big><a name="01-18" id="01-18">01-18</a></big></b>
+<br>
+Fix a problem with the perl Swig example
+<a href="check_swig_xam.pl.htm#int_array_class" target="_top"><span style='white-space: nowrap'>int_array_class</span></a>
+.
+To be specific,
+<code><font color='blue'><pre style='display:inline'> 
+     @array_obj[@i] = 2 * i;
+</pre></font></code>
+was changed to
+<code><font color='blue'><pre style='display:inline'> 
+     pl_swig_xam::int_array_ptr_setitem(@array_obj, @i, 2 * @i);
+</pre></font></code>
+<br>
+<b><big><a name="01-17" id="01-17">01-17</a></big></b>
+
+<ol type="1"><li>
+Change <code><font color="blue">vector_double</font></code> -&gt; <code><font color="blue">vec_double</font></code> and
+<code><font color="blue">vector_ad</font></code> -&gt; <code><font color="blue">vec_a_double</font></code>; see
+<a href="vector_ctor.htm" target="_top"><span style='white-space: nowrap'>vector_ctor</span></a>
+.
+</li><li>
+
+Improve documentation:
+Change name of some sections; e.g. cppad_swig_lib -&gt; library.
+Fix capitalization of Cppad Swig, M4, and other names in titles
+and headings.
+Include the
+<a href="a_fun_optimize.htm#Example" target="_top"><span style='white-space: nowrap'>optimize&nbsp;example</span></a>
+
+in the documentation.
+Move M4 macro <a href="xam.m4.htm" target="_top"><span style='white-space: nowrap'>documentation</span></a>
+
+inside of library section.
+</li></ol>
+
+
+<br>
+<br>
+<b><big><a name="01-16" id="01-16">01-16</a></big></b>
+<br>
+Add
+a_double <a href="a_double_cond_assign.htm" target="_top"><span style='white-space: nowrap'>conditional&nbsp;assignment</span></a>
+,
+a_fun <a href="a_fun_hessian.htm" target="_top"><span style='white-space: nowrap'>hessian</span></a>
+,
+a_fun <a href="a_fun_property.htm" target="_top"><span style='white-space: nowrap'>property</span></a>
+, and
+a_fun <a href="a_fun_optimize.htm" target="_top"><span style='white-space: nowrap'>optimize</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="01-15" id="01-15">01-15</a></big></b>
+
+<ol type="1"><li>
+Add the C++98 standard math functions to the <code><font color="blue">a_double</font></code> class; see
+<a href="a_double_unary_fun.htm" target="_top"><span style='white-space: nowrap'>a_double_unary_fun</span></a>
+.
+</li><li>
+
+Add <a href="a_double_property.htm#near_equal" target="_top"><span style='white-space: nowrap'>near_equal</span></a>
+ for
+testing purposes.
+</li></ol>
+
+
+<br>
+<br>
+<b><big><a name="01-14" id="01-14">01-14</a></big></b>
+<br>
+Change the Swig example directory, and file names,
+from <code><font color="blue">example</font></code> to <code><font color="blue">swig_xam</font></code>.
+This distinguishes them from the Cppad Swig
+examples in <code><font color="blue">lib/example</font></code>.
+Group the <a href="library.htm" target="_top"><span style='white-space: nowrap'>library</span></a>
+ into one section
+and improve documentation of <a href="module.htm" target="_top"><span style='white-space: nowrap'>module&nbsp;names</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="01-13" id="01-13">01-13</a></big></b>
+
+<ol type="1"><li>
+Change <code><font color="blue">error_msg</font></code> to push and pop error messages
+so it handles multiple exceptions and deletes old messages.
+</li><li>
+
+Move <code><font color="blue">error_msg</font></code> to <a href="error_message.htm" target="_top"><span style='white-space: nowrap'>error_message</span></a>
+.
+</li><li>
+
+Map calls to the Cppad error handler to
+calls to <code><font color="blue">error_message</font></code>.
+</li></ol>
+
+
+<br>
+<br>
+<b><big><a name="01-12" id="01-12">01-12</a></big></b>
+<br>
+Change
+<a href="xam.m4.htm" target="_top"><span style='white-space: nowrap'>xam.m4</span></a>
+ macros to all start with Capital letters and use Camel case
+This is relevant to understanding on Cppad Swig generates examples
+for all languages from a single source.
+
+<br>
+<br>
+<b><big><a name="01-11" id="01-11">01-11</a></big></b>
+
+<ol type="1"><li>
+Add exception handling; see <a href="error_message.htm" target="_top"><span style='white-space: nowrap'>error_message</span></a>
+.
+</li><li>
+
+Fix the Perl examples / tests
+(exception handling revealed they were not working).
+</li></ol>
+
+
+<br>
+<br>
+<b><big><a name="01-10" id="01-10">01-10</a></big></b>
+<br>
+First uploading of this documentation.
+
+
+<hr>Input File: whats_new/2017.omh
+
+</body>
+</html>

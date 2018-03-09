@@ -1,0 +1,150 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Swig Example: C++ Function Implementation</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Swig Example: C++ Function Implementation">
+<meta name="keywords" id="keywords" content=" swig example: c++ function implementation ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_swig_xam_function.cpp_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/cppad_swig" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="swig_xam_function.htm" target="_top">Prev</a>
+</td><td><a href="swig_xam_normal_class.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>cppad_swig</option>
+<option>swig_xam.i</option>
+<option>swig_xam.hpp</option>
+<option>swig_xam_function</option>
+<option>swig_xam_function.cpp</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down4(this)'>
+<option>cppad_swig-&gt;</option>
+<option>testing</option>
+<option>swig_xam.i</option>
+<option>library</option>
+<option>whats_new_2018</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>swig_xam.i-&gt;</option>
+<option>swig_xam.hpp</option>
+<option>check_swig_xam.py</option>
+<option>check_swig_xam.m</option>
+<option>check_swig_xam.pl</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>swig_xam.hpp-&gt;</option>
+<option>swig_xam_function</option>
+<option>swig_xam_normal_class</option>
+<option>swig_xam_template_class</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>swig_xam_function-&gt;</option>
+<option>swig_xam_function.cpp</option>
+</select>
+</td>
+<td>swig_xam_function.cpp</td>
+<td>Headings</td>
+</tr></table><br>
+@(@\newcommand{\B}[1]{ {\bf #1} }
+\newcommand{\R}[1]{ {\rm #1} }@)@<center><b><big><big>Swig Example: C++ Function Implementation</big></big></b></center>
+<pre><tt><b><font color="#000080"># include</font></b> <font color="#FF0000">"swig_xam.hpp"</font>
+<b><font color="#000080"># include</font></b> <font color="#FF0000">&lt;stdexcept&gt;</font>
+<b><font color="#000080"># include</font></b> <font color="#FF0000">&lt;string&gt;</font>
+<b><font color="#000080"># include</font></b> <font color="#FF0000">&lt;limits&gt;</font>
+
+<i><font color="#9A1900">// factorial_by_value</font></i>
+<font color="#009900">int</font> <b><font color="#000000">factorial_by_value</font></b><font color="#990000">(</font><font color="#009900">int</font> n<font color="#990000">)</font> <font color="#FF0000">{</font>
+     <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>n <font color="#990000">&lt;=</font> <font color="#993399">1</font><font color="#990000">)</font> <b><font color="#0000FF">return</font></b> <font color="#993399">1</font><font color="#990000">;</font>
+     <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">return</font></b> n <font color="#990000">*</font> <b><font color="#000000">factorial_by_value</font></b><font color="#990000">(</font>n <font color="#990000">-</font> <font color="#993399">1</font><font color="#990000">);</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// message_of_void</font></i>
+<b><font color="#0000FF">const</font></b> <font color="#009900">char</font><font color="#990000">*</font> <b><font color="#000000">message_of_void</font></b><font color="#990000">(</font><font color="#009900">void</font><font color="#990000">)</font>
+<font color="#FF0000">{</font>    <b><font color="#0000FF">return</font></b> <font color="#FF0000">"OK"</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// add_by_ptr</font></i>
+<font color="#009900">void</font> <b><font color="#000000">add_by_ptr</font></b><font color="#990000">(</font><font color="#009900">int</font> x<font color="#990000">,</font> <font color="#009900">int</font> y<font color="#990000">,</font> <font color="#009900">int</font><font color="#990000">*</font> result<font color="#990000">)</font>
+<font color="#FF0000">{</font>    <font color="#990000">*</font>result <font color="#990000">=</font> x <font color="#990000">+</font> y<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// max_array_by_ptr</font></i>
+<font color="#009900">int</font> <b><font color="#000000">max_array_by_ptr</font></b><font color="#990000">(</font><font color="#009900">int</font> n<font color="#990000">,</font> <b><font color="#0000FF">const</font></b> <font color="#009900">int</font><font color="#990000">*</font> x<font color="#990000">)</font>
+<font color="#FF0000">{</font>    <font color="#009900">int</font> result <font color="#990000">=</font> x<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">];</font>
+     <b><font color="#0000FF">for</font></b><font color="#990000">(</font><font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> <font color="#993399">10</font><font color="#990000">;</font> i<font color="#990000">++)</font>
+          <b><font color="#0000FF">if</font></b><font color="#990000">(</font> x<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">&gt;</font> result <font color="#990000">)</font>
+               result <font color="#990000">=</font> x<font color="#990000">[</font>i<font color="#990000">];</font>
+     <b><font color="#0000FF">return</font></b> result<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// max_std_vector_double</font></i>
+<font color="#009900">double</font> <b><font color="#000000">max_std_vector_double</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> std<font color="#990000">::</font>vector<font color="#990000">&lt;</font><font color="#009900">double</font><font color="#990000">&gt;&amp;</font> x<font color="#990000">)</font>
+<font color="#FF0000">{</font>    <font color="#009900">double</font> result <font color="#990000">=</font> <font color="#990000">-</font> std<font color="#990000">::</font>numeric_limits<font color="#990000">&lt;</font><font color="#009900">double</font><font color="#990000">&gt;::</font><b><font color="#000000">infinity</font></b><font color="#990000">();</font>
+     <b><font color="#0000FF">for</font></b><font color="#990000">(</font><font color="#008080">size_t</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> x<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">();</font> i<font color="#990000">++)</font>
+          <b><font color="#0000FF">if</font></b><font color="#990000">(</font> x<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">&gt;</font> result <font color="#990000">)</font>
+               result <font color="#990000">=</font> x<font color="#990000">[</font>i<font color="#990000">];</font>
+     <b><font color="#0000FF">return</font></b> result<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// raise_exception</font></i>
+<b><font color="#0000FF">const</font></b> <font color="#009900">char</font><font color="#990000">*</font> <b><font color="#000000">raise_exception</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> <font color="#009900">char</font><font color="#990000">*</font> message<font color="#990000">)</font>
+<font color="#FF0000">{</font>    <i><font color="#9A1900">// previous error message</font></i>
+     <b><font color="#0000FF">static</font></b> std<font color="#990000">::</font><font color="#008080">string</font> previous <font color="#990000">=</font> <font color="#FF0000">""</font><font color="#990000">;</font>
+     <b><font color="#0000FF">if</font></b><font color="#990000">(</font> message<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">'</font><font color="#CC33CC">\0</font><font color="#FF0000">'</font> <font color="#990000">)</font>
+          <b><font color="#0000FF">return</font></b> previous<font color="#990000">.</font><b><font color="#000000">c_str</font></b><font color="#990000">();</font>
+     previous <font color="#990000">=</font> message<font color="#990000">;</font>
+     <i><font color="#9A1900">//</font></i>
+     <i><font color="#9A1900">// raise exception</font></i>
+     <b><font color="#0000FF">throw</font></b> std<font color="#990000">::</font><b><font color="#000000">runtime_error</font></b><font color="#990000">(</font> std<font color="#990000">::</font><b><font color="#000000">string</font></b><font color="#990000">(</font> message <font color="#990000">)</font> <font color="#990000">);</font>
+     <i><font color="#9A1900">//</font></i>
+     <i><font color="#9A1900">// never get to here</font></i>
+     <b><font color="#0000FF">return</font></b> <font color="#FF0000">""</font><font color="#990000">;</font>
+<font color="#FF0000">}</font></tt></pre>
+
+<hr>Input File: swig_xam/function.cpp
+
+</body>
+</html>

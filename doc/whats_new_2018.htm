@@ -1,0 +1,124 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Cppad Swig Changes During 2018</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Cppad Swig Changes During 2018">
+<meta name="keywords" id="keywords" content=" cppad swig changes during 2018 previous years 03-08 02-28 ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_whats_new_2018_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/cppad_swig" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="omhelp.m4.htm" target="_top">Prev</a>
+</td><td><a href="whats_new_2017.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>cppad_swig</option>
+<option>whats_new_2018</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>cppad_swig-&gt;</option>
+<option>testing</option>
+<option>swig_xam.i</option>
+<option>library</option>
+<option>whats_new_2018</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down0(this)'>
+<option>whats_new_2018-&gt;</option>
+<option>whats_new_2017</option>
+</select>
+</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Previous Years</option>
+<option>03-08</option>
+<option>02-28</option>
+</select>
+</td>
+</tr></table><br>
+@(@\newcommand{\B}[1]{ {\bf #1} }
+\newcommand{\R}[1]{ {\rm #1} }@)@<center><b><big><big>Cppad Swig Changes During 2018</big></big></b></center>
+<br>
+<b><big><a name="Previous Years" id="Previous Years">Previous Years</a></big></b>
+
+<br>
+<a href="whats_new_2017.htm" target="_top"><span style='white-space: nowrap'>whats_new_2017</span></a>
+
+
+<br>
+<br>
+<b><big><a name="03-08" id="03-08">03-08</a></big></b>
+
+<ol type="1"><li>
+Fix catching of exceptions in scripting languages.
+Throwing was working after change on 02-28,
+but catching was not.
+</li><li>
+
+Fix warning during <a href="run_cmake.sh.htm" target="_top"><span style='white-space: nowrap'>run_cmake.sh</span></a>
+ command
+with new versions of <code><font color="blue">cmake</font></code>.
+To be specific, convert calls from
+<code><font color="blue">SWIG_ADD_MODULE</font></code> to <code><font color="blue">SWIG_ADD_LIBRARY</font></code>
+as the warning suggested.
+</li></ol>
+
+
+<br>
+<br>
+<b><big><a name="02-28" id="02-28">02-28</a></big></b>
+<br>
+Change <code><font color="blue">swig_xam</font></code> <a href="swig_xam.i.htm#exception" target="_top"><span style='white-space: nowrap'>exceptions</span></a>
+
+to standard exceptions and remove the <code><font color="blue">throw</font></code> from the
+corresponding function prototype.
+The avoids the warning
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;warning:&nbsp;dynamic&nbsp;exception&nbsp;specifications&nbsp;are&nbsp;deprecated&nbsp;in&nbsp;C++11<br>
+</span></font></code>
+in the file <code><font color="blue">swig_xam.hpp</font></code> and needs a similar fix in the library.
+
+
+<hr>Input File: whats_new/2018.omh
+
+</body>
+</html>

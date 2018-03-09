@@ -1,0 +1,158 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Perl: Sparsity Patterns: Example and Test</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Perl: Sparsity Patterns: Example and Test">
+<meta name="keywords" id="keywords" content=" perl: sparsity patterns: example test ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_sparse_rc_xam.pm_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/cppad_swig" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="sparse_rc_xam.m.htm" target="_top">Prev</a>
+</td><td><a href="sparse_rc_xam.py.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>cppad_swig</option>
+<option>library</option>
+<option>sparse</option>
+<option>sparse_rc</option>
+<option>sparse_rc_xam.pm</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down4(this)'>
+<option>cppad_swig-&gt;</option>
+<option>testing</option>
+<option>swig_xam.i</option>
+<option>library</option>
+<option>whats_new_2018</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>library-&gt;</option>
+<option>module</option>
+<option>a_double</option>
+<option>vector</option>
+<option>a_fun</option>
+<option>sparse</option>
+<option>error</option>
+<option>xam.m4</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>sparse-&gt;</option>
+<option>sparse_rc</option>
+<option>sparse_rcv</option>
+<option>jac_sparsity</option>
+<option>hes_sparsity</option>
+<option>sparse_jac</option>
+<option>sparse_hes</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>sparse_rc-&gt;</option>
+<option>sparse_rc_xam.cpp</option>
+<option>sparse_rc_xam.m</option>
+<option>sparse_rc_xam.pm</option>
+<option>sparse_rc_xam.py</option>
+</select>
+</td>
+<td>sparse_rc_xam.pm</td>
+<td>Headings</td>
+</tr></table><br>
+@(@\newcommand{\B}[1]{ {\bf #1} }
+\newcommand{\R}[1]{ {\rm #1} }@)@<center><b><big><big>Perl: Sparsity Patterns: Example and Test</big></big></b></center>
+<pre><tt><b><font color="#0000FF">package</font></b> sparse_rc_xam<font color="#990000">;</font>
+<b><font color="#0000FF">sub</font></b> <b><font color="#000000">sparse_rc_xam</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+     <i><font color="#9A1900"># check for standard perl programming conventions</font></i>
+     <b><font color="#0000FF">use</font></b> strict<font color="#990000">;</font>
+     <b><font color="#0000FF">use</font></b> warnings<font color="#990000">;</font>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># load the Cppad Swig library</font></i>
+     <b><font color="#0000FF">use</font></b> pm_cppad<font color="#990000">;</font>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># initilaize return variable</font></i>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$ok</font> <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font>
+     <i><font color="#9A1900"># ---------------------------------------------------------------------</font></i>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># create a sparsity pattern</font></i>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$pattern</font> <font color="#990000">=</font> new pm_cppad<font color="#990000">::</font><b><font color="#000000">sparse_rc</font></b><font color="#990000">();</font>
+     <i><font color="#9A1900">#</font></i>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$nr</font> <font color="#990000">=</font> <font color="#993399">6</font><font color="#990000">;</font>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$nc</font> <font color="#990000">=</font> <font color="#993399">5</font><font color="#990000">;</font>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$nnz</font> <font color="#990000">=</font> <font color="#993399">4</font><font color="#990000">;</font>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># resize</font></i>
+     <font color="#009900">$pattern</font><font color="#990000">-&gt;</font><b><font color="#000000">resize</font></b><font color="#990000">(</font><font color="#009900">$nr</font><font color="#990000">,</font> <font color="#009900">$nc</font><font color="#990000">,</font> <font color="#009900">$nnz</font><font color="#990000">);</font>
+     <i><font color="#9A1900">#</font></i>
+     <font color="#009900">$ok</font> <font color="#990000">=</font> <font color="#009900">$ok</font> <font color="#990000">&amp;&amp;</font> <font color="#009900">$pattern</font><font color="#990000">-&gt;</font><b><font color="#000000">nr</font></b><font color="#990000">()</font>  <font color="#990000">==</font> <font color="#009900">$nr</font> <font color="#990000">;</font>
+     <font color="#009900">$ok</font> <font color="#990000">=</font> <font color="#009900">$ok</font> <font color="#990000">&amp;&amp;</font> <font color="#009900">$pattern</font><font color="#990000">-&gt;</font><b><font color="#000000">nc</font></b><font color="#990000">()</font>  <font color="#990000">==</font> <font color="#009900">$nc</font> <font color="#990000">;</font>
+     <font color="#009900">$ok</font> <font color="#990000">=</font> <font color="#009900">$ok</font> <font color="#990000">&amp;&amp;</font> <font color="#009900">$pattern</font><font color="#990000">-&gt;</font><b><font color="#000000">nnz</font></b><font color="#990000">()</font> <font color="#990000">==</font> <font color="#009900">$nnz</font> <font color="#990000">;</font>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># indices corresponding to upper-diagonal</font></i>
+     <b><font color="#0000FF">for</font></b><font color="#990000">(</font><b><font color="#0000FF">my</font></b> <font color="#009900">$k</font> <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> <font color="#009900">$k</font> <font color="#990000">&lt;</font> <font color="#009900">$nnz</font><font color="#990000">;</font> <font color="#009900">$k</font><font color="#990000">++)</font> <font color="#FF0000">{</font>
+          <font color="#009900">$pattern</font><font color="#990000">-&gt;</font><b><font color="#000000">put</font></b><font color="#990000">(</font><font color="#009900">$k</font><font color="#990000">,</font> <font color="#009900">$k</font><font color="#990000">,</font> <font color="#009900">$k</font><font color="#990000">+</font><font color="#993399">1</font><font color="#990000">);</font>
+     <font color="#FF0000">}</font>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># row and column indices</font></i>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$row</font> <font color="#990000">=</font> <font color="#009900">$pattern</font><font color="#990000">-&gt;</font><b><font color="#000000">row</font></b><font color="#990000">();</font>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$col</font> <font color="#990000">=</font> <font color="#009900">$pattern</font><font color="#990000">-&gt;</font><b><font color="#000000">col</font></b><font color="#990000">();</font>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># check row and column indices</font></i>
+     <b><font color="#0000FF">for</font></b><font color="#990000">(</font><b><font color="#0000FF">my</font></b> <font color="#009900">$k</font> <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> <font color="#009900">$k</font> <font color="#990000">&lt;</font> <font color="#009900">$nnz</font><font color="#990000">;</font> <font color="#009900">$k</font><font color="#990000">++)</font> <font color="#FF0000">{</font>
+          <font color="#009900">$ok</font> <font color="#990000">=</font> <font color="#009900">$ok</font> <font color="#990000">&amp;&amp;</font> <font color="#009900">$row</font><font color="#990000">-&gt;</font><b><font color="#000000">get</font></b><font color="#990000">(</font><font color="#009900">$k</font><font color="#990000">)</font> <font color="#990000">==</font> <font color="#009900">$k</font><font color="#990000">;</font>
+          <font color="#009900">$ok</font> <font color="#990000">=</font> <font color="#009900">$ok</font> <font color="#990000">&amp;&amp;</font> <font color="#009900">$col</font><font color="#990000">-&gt;</font><b><font color="#000000">get</font></b><font color="#990000">(</font><font color="#009900">$k</font><font color="#990000">)</font> <font color="#990000">==</font> <font color="#009900">$k</font><font color="#990000">+</font><font color="#993399">1</font><font color="#990000">;</font>
+     <font color="#FF0000">}</font>
+     <i><font color="#9A1900">#</font></i>
+     <i><font color="#9A1900"># For this case, row_major and col_major order are same as original order</font></i>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$row_major</font> <font color="#990000">=</font> <font color="#009900">$pattern</font><font color="#990000">-&gt;</font><b><font color="#000000">row_major</font></b><font color="#990000">();</font>
+     <b><font color="#0000FF">my</font></b> <font color="#009900">$col_major</font> <font color="#990000">=</font> <font color="#009900">$pattern</font><font color="#990000">-&gt;</font><b><font color="#000000">col_major</font></b><font color="#990000">();</font>
+     <b><font color="#0000FF">for</font></b><font color="#990000">(</font><b><font color="#0000FF">my</font></b> <font color="#009900">$k</font> <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> <font color="#009900">$k</font> <font color="#990000">&lt;</font> <font color="#009900">$nnz</font><font color="#990000">;</font> <font color="#009900">$k</font><font color="#990000">++)</font> <font color="#FF0000">{</font>
+          <font color="#009900">$ok</font> <font color="#990000">=</font> <font color="#009900">$ok</font> <font color="#990000">&amp;&amp;</font> <font color="#009900">$row_major</font><font color="#990000">-&gt;</font><b><font color="#000000">get</font></b><font color="#990000">(</font><font color="#009900">$k</font><font color="#990000">)</font> <font color="#990000">==</font> <font color="#009900">$k</font><font color="#990000">;</font>
+          <font color="#009900">$ok</font> <font color="#990000">=</font> <font color="#009900">$ok</font> <font color="#990000">&amp;&amp;</font> <font color="#009900">$col_major</font><font color="#990000">-&gt;</font><b><font color="#000000">get</font></b><font color="#990000">(</font><font color="#009900">$k</font><font color="#990000">)</font> <font color="#990000">==</font> <font color="#009900">$k</font><font color="#990000">;</font>
+     <font color="#FF0000">}</font>
+     <i><font color="#9A1900">#</font></i>
+     <b><font color="#0000FF">return</font></b><font color="#990000">(</font> <font color="#009900">$ok</font> <font color="#990000">);</font>
+<font color="#FF0000">}</font></tt></pre>
+
+<hr>Input File: build/lib/example/perl/sparse_rc_xam.pm
+
+</body>
+</html>

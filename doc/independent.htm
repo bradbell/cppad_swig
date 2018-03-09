@@ -1,0 +1,182 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Declare Independent Variables and Start Recording</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Declare Independent Variables and Start Recording">
+<meta name="keywords" id="keywords" content=" declare independent variables start recording syntax module_ref x ax purpose example ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_independent_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/cppad_swig" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="a_fun.htm" target="_top">Prev</a>
+</td><td><a href="abort_recording.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>cppad_swig</option>
+<option>library</option>
+<option>a_fun</option>
+<option>independent</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>cppad_swig-&gt;</option>
+<option>testing</option>
+<option>swig_xam.i</option>
+<option>library</option>
+<option>whats_new_2018</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>library-&gt;</option>
+<option>module</option>
+<option>a_double</option>
+<option>vector</option>
+<option>a_fun</option>
+<option>sparse</option>
+<option>error</option>
+<option>xam.m4</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>a_fun-&gt;</option>
+<option>independent</option>
+<option>abort_recording</option>
+<option>a_fun_ctor</option>
+<option>a_fun_jacobian</option>
+<option>a_fun_hessian</option>
+<option>a_fun_forward</option>
+<option>a_fun_reverse</option>
+<option>a_fun_optimize</option>
+<option>a_fun_property</option>
+</select>
+</td>
+<td>independent</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>module_ref</option>
+<option>x</option>
+<option>ax</option>
+<option>Purpose</option>
+<option>Example</option>
+</select>
+</td>
+</tr></table><br>
+@(@\newcommand{\B}[1]{ {\bf #1} }
+\newcommand{\R}[1]{ {\rm #1} }@)@<center><b><big><big>Declare Independent Variables and Start Recording</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><i><font color="black"><span style='white-space: nowrap'>ax</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>module_ref</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;independent(</span></font><i><font color="black"><span style='white-space: nowrap'>x</span></font></i><font color="blue"><span style='white-space: nowrap'>)</span></font></code>
+
+
+
+<br>
+<br>
+<b><big><a name="module_ref" id="module_ref">module_ref</a></big></b>
+<br>
+This is the <a href="module.htm#module_ref" target="_top"><span style='white-space: nowrap'>module&nbsp;reference</span></a>
+
+for the particular language.
+
+<br>
+<br>
+<b><big><a name="x" id="x">x</a></big></b>
+<br>
+This argument has prototype
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;vec_double&amp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>x</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+Its specifies the number of independent variables
+and their values during the recording.
+We use the notation 
+<code><i><font color="black"><span style='white-space: nowrap'>n</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>x</span></font></i><font color="blue"><span style='white-space: nowrap'>.size()</span></font></code>
+
+to denote the number of independent variables.
+
+<br>
+<br>
+<b><big><a name="ax" id="ax">ax</a></big></b>
+<br>
+The result has prototype
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vec_a_double&amp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>ax</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+This is the vector of independent variables.
+It has size 
+<code><i><font color="black"><span style='white-space: nowrap'>n</span></font></i></code>
+ and for
+
+<code><i><font color="black"><span style='white-space: nowrap'>i</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;0</span></font></code>
+ to 
+<code><i><font color="black"><span style='white-space: nowrap'>n</span></font></i><font color="blue"><span style='white-space: nowrap'>-1</span></font></code>
+
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>ax</span></font></i><font color="blue"><span style='white-space: nowrap'>[</span></font><i><font color="black"><span style='white-space: nowrap'>i</span></font></i><font color="blue"><span style='white-space: nowrap'>].value()&nbsp;==&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>x</span></font></i><font color="blue"><span style='white-space: nowrap'>[</span></font><i><font color="black"><span style='white-space: nowrap'>i</span></font></i><font color="blue"><span style='white-space: nowrap'>]<br>
+</span></font></code>
+<br>
+<b><big><a name="Purpose" id="Purpose">Purpose</a></big></b>
+<br>
+This starts a recording of the <a href="a_double.htm" target="_top"><span style='white-space: nowrap'>a_double</span></a>
+ operation.
+This recording is terminated, and the information is stored,
+by calling the <a href="a_fun_ctor.htm" target="_top"><span style='white-space: nowrap'>a_fun&nbsp;constructor</span></a>
+.
+It is terminated, and the information is lost,
+by calling <a href="abort_recording.htm" target="_top"><span style='white-space: nowrap'>abort_recording</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="Example" id="Example">Example</a></big></b>
+<br>
+All of the <code><font color="blue">a_fun</font></code> examples use this function.
+
+
+<hr>Input File: lib/a_fun.cpp
+
+</body>
+</html>

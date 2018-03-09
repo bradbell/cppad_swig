@@ -1,0 +1,155 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Octave: a_fun Properties: Example and Test</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Octave: a_fun Properties: Example and Test">
+<meta name="keywords" id="keywords" content=" octave: a_fun properties: example test ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_a_fun_property_xam.m_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/cppad_swig" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="a_fun_property_xam.cpp.htm" target="_top">Prev</a>
+</td><td><a href="a_fun_property_xam.pm.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>cppad_swig</option>
+<option>library</option>
+<option>a_fun</option>
+<option>a_fun_property</option>
+<option>a_fun_property_xam.m</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down4(this)'>
+<option>cppad_swig-&gt;</option>
+<option>testing</option>
+<option>swig_xam.i</option>
+<option>library</option>
+<option>whats_new_2018</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>library-&gt;</option>
+<option>module</option>
+<option>a_double</option>
+<option>vector</option>
+<option>a_fun</option>
+<option>sparse</option>
+<option>error</option>
+<option>xam.m4</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>a_fun-&gt;</option>
+<option>independent</option>
+<option>abort_recording</option>
+<option>a_fun_ctor</option>
+<option>a_fun_jacobian</option>
+<option>a_fun_hessian</option>
+<option>a_fun_forward</option>
+<option>a_fun_reverse</option>
+<option>a_fun_optimize</option>
+<option>a_fun_property</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>a_fun_property-&gt;</option>
+<option>a_fun_property_xam.cpp</option>
+<option>a_fun_property_xam.m</option>
+<option>a_fun_property_xam.pm</option>
+<option>a_fun_property_xam.py</option>
+</select>
+</td>
+<td>a_fun_property_xam.m</td>
+<td>Headings</td>
+</tr></table><br>
+@(@\newcommand{\B}[1]{ {\bf #1} }
+\newcommand{\R}[1]{ {\rm #1} }@)@<center><b><big><big>Octave: a_fun Properties: Example and Test</big></big></b></center>
+<pre><tt><b><font color="#0000FF">function</font></b> ok = <b><font color="#000000">a_fun_property_xam</font></b>()
+     <i><font color="#9A1900">%</font></i>
+     <i><font color="#9A1900">% load the Cppad Swig library</font></i>
+     m_cppad
+     <i><font color="#9A1900">%</font></i>
+     <i><font color="#9A1900">% initialize return variable</font></i>
+     ok = true;
+     <i><font color="#9A1900">% -----------------------------------------------------------------------</font></i>
+     n_ind = 1; <i><font color="#9A1900">% number of independent variables</font></i>
+     n_dep = 2; <i><font color="#9A1900">% number of dependent variables</font></i>
+     n_var = 1; <i><font color="#9A1900">% phantom variable at address 0</font></i>
+     n_op = 1;  <i><font color="#9A1900">% special operator at beginning</font></i>
+     <i><font color="#9A1900">%</font></i>
+     <i><font color="#9A1900">% dimension some vectors</font></i>
+     x = m_cppad.<b><font color="#000000">vec_double</font></b>(n_ind);
+     ay = m_cppad.<b><font color="#000000">vec_a_double</font></b>(n_dep);
+     <i><font color="#9A1900">%</font></i>
+     <i><font color="#9A1900">% independent variables</font></i>
+     <b><font color="#000000">x</font></b>(0) = 1.0;
+     ax = m_cppad.<b><font color="#000000">independent</font></b>(x);
+     n_var = n_var + n_ind; <i><font color="#9A1900">% one for each indpendent</font></i>
+     n_op = n_op + n_ind;
+     <i><font color="#9A1900">%</font></i>
+     <i><font color="#9A1900">% first dependent variable</font></i>
+     <b><font color="#000000">ay</font></b>(0) = <b><font color="#000000">ax</font></b>(0) + <b><font color="#000000">ax</font></b>(0);
+     n_var = n_var + 1; <i><font color="#9A1900">% one variable and operator</font></i>
+     n_op = n_op + 1;
+     <i><font color="#9A1900">%</font></i>
+     <i><font color="#9A1900">% second dependent variable</font></i>
+     ax0 = <b><font color="#000000">ax</font></b>(0);
+     <b><font color="#000000">ay</font></b>(1) = ax0.<b><font color="#000000">sin</font></b>();
+     n_var = n_var + 2; <i><font color="#9A1900">% two varialbes, one operator</font></i>
+     n_op = n_op + 1;
+     <i><font color="#9A1900">%</font></i>
+     <i><font color="#9A1900">% define f(x) = y</font></i>
+     af = m_cppad.<b><font color="#000000">a_fun</font></b>(ax, ay);
+     n_op = n_op + 1; <i><font color="#9A1900">% speical operator at end</font></i>
+     <i><font color="#9A1900">%</font></i>
+     <i><font color="#9A1900">% check af properties</font></i>
+     ok = ok &amp;&amp; af.<b><font color="#000000">size_ind</font></b>() == n_ind;
+     ok = ok &amp;&amp; af.<b><font color="#000000">size_dep</font></b>() == n_dep;
+     ok = ok &amp;&amp; af.<b><font color="#000000">size_var</font></b>() == n_var;
+     ok = ok &amp;&amp; af.<b><font color="#000000">size_op</font></b>() == n_op;
+     <i><font color="#9A1900">%</font></i>
+     <b><font color="#0000FF">return</font></b>;
+<b><font color="#0000FF">end</font></b></tt></pre>
+
+<hr>Input File: build/lib/example/octave/a_fun_property_xam.m
+
+</body>
+</html>

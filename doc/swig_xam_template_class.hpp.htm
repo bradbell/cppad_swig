@@ -1,0 +1,118 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Swig Example: C++ Template Class Implementation</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Swig Example: C++ Template Class Implementation">
+<meta name="keywords" id="keywords" content=" swig example: c++ template class implementation ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_swig_xam_template_class.hpp_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/cppad_swig" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="swig_xam_template_class.htm" target="_top">Prev</a>
+</td><td><a href="check_swig_xam.py.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>cppad_swig</option>
+<option>swig_xam.i</option>
+<option>swig_xam.hpp</option>
+<option>swig_xam_template_class</option>
+<option>swig_xam_template_class.hpp</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down4(this)'>
+<option>cppad_swig-&gt;</option>
+<option>testing</option>
+<option>swig_xam.i</option>
+<option>library</option>
+<option>whats_new_2018</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>swig_xam.i-&gt;</option>
+<option>swig_xam.hpp</option>
+<option>check_swig_xam.py</option>
+<option>check_swig_xam.m</option>
+<option>check_swig_xam.pl</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>swig_xam.hpp-&gt;</option>
+<option>swig_xam_function</option>
+<option>swig_xam_normal_class</option>
+<option>swig_xam_template_class</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>swig_xam_template_class-&gt;</option>
+<option>swig_xam_template_class.hpp</option>
+</select>
+</td>
+<td>swig_xam_template_class.hpp</td>
+<td>Headings</td>
+</tr></table><br>
+@(@\newcommand{\B}[1]{ {\bf #1} }
+\newcommand{\R}[1]{ {\rm #1} }@)@<center><b><big><big>Swig Example: C++ Template Class Implementation</big></big></b></center>
+<pre><tt><b><font color="#000080"># include</font></b> <font color="#FF0000">"swig_xam.hpp"</font>
+
+<i><font color="#9A1900">// template_class(value)</font></i>
+<b><font color="#0000FF">template</font></b> <font color="#990000">&lt;</font><b><font color="#0000FF">class</font></b> <font color="#008080">Type</font><font color="#990000">&gt;</font>
+template_class<font color="#990000">&lt;</font>Type<font color="#990000">&gt;::</font><b><font color="#000000">template_class</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> Type<font color="#990000">&amp;</font> value<font color="#990000">)</font> <font color="#990000">:</font> <b><font color="#000000">value_</font></b><font color="#990000">(</font>value<font color="#990000">)</font>
+<font color="#FF0000">{</font> <font color="#FF0000">}</font><font color="#990000">;</font>
+
+<i><font color="#9A1900">// value()</font></i>
+<b><font color="#0000FF">template</font></b> <font color="#990000">&lt;</font><b><font color="#0000FF">class</font></b> <font color="#008080">Type</font><font color="#990000">&gt;</font>
+<font color="#008080">Type</font> template_class<font color="#990000">&lt;</font>Type<font color="#990000">&gt;::</font><b><font color="#000000">value</font></b> <font color="#990000">(</font><font color="#009900">void</font><font color="#990000">)</font> <b><font color="#0000FF">const</font></b>
+<font color="#FF0000">{</font>    <b><font color="#0000FF">return</font></b> value_<font color="#990000">;</font> <font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// additon</font></i>
+<b><font color="#0000FF">template</font></b> <font color="#990000">&lt;</font><b><font color="#0000FF">class</font></b> <font color="#008080">Type</font><font color="#990000">&gt;</font> template_class<font color="#990000">&lt;</font>Type<font color="#990000">&gt;</font>
+template_class<font color="#990000">&lt;</font>Type<font color="#990000">&gt;::</font><b><font color="#0000FF">operator</font></b><font color="#990000">+(</font><b><font color="#0000FF">const</font></b> template_class<font color="#990000">&amp;</font> right<font color="#990000">)</font> <b><font color="#0000FF">const</font></b>
+<font color="#FF0000">{</font>    <b><font color="#0000FF">return</font></b> <b><font color="#000000">template_class</font></b><font color="#990000">(</font> value_ <font color="#990000">+</font> right<font color="#990000">.</font>value_ <font color="#990000">);</font> <font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// equality</font></i>
+<b><font color="#0000FF">template</font></b> <font color="#990000">&lt;</font><b><font color="#0000FF">class</font></b> <font color="#008080">Type</font><font color="#990000">&gt;</font> <font color="#009900">bool</font>
+template_class<font color="#990000">&lt;</font>Type<font color="#990000">&gt;::</font><b><font color="#0000FF">operator</font></b><font color="#990000">==(</font><b><font color="#0000FF">const</font></b> template_class<font color="#990000">&amp;</font> right<font color="#990000">)</font> <b><font color="#0000FF">const</font></b>
+<font color="#FF0000">{</font>    <b><font color="#0000FF">return</font></b> <font color="#990000">(</font> value_ <font color="#990000">==</font> right<font color="#990000">.</font>value_ <font color="#990000">);</font> <font color="#FF0000">}</font></tt></pre>
+
+<hr>Input File: swig_xam/template_class.hpp
+
+</body>
+</html>
