@@ -1,0 +1,26 @@
+# only on file
+git_commit.sh
+# only one directory
+build
+# doc
+# log file in the root directory
+*.log
+# vi swap file in any directory
+*.swp
+*/*.swp
+*/*/*.swp
+#
+# root file name is junk in any directory
+junk
+junk.*
+*/junk
+*/junk.*
+*/*/junk
+*/*/junk.*
+# directory is new or new.* in any directory
+new
+new.*
+*/new
+*/new.*
+*/*/new
+*/*/new.*
