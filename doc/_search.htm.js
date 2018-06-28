@@ -3,7 +3,7 @@
 // ------------------------------------------------------------ 
 Keyword = 
 [
-'cppad_swig  cppad_swig-20180309: A C++ AD Library with a Swig Interface  ',' purpose getting started function speed supporting packages required optional source directory license contents ',
+'cppad_swig  cppad_swig-20180627: A C++ AD Library with a Swig Interface  ',' purpose getting started function speed supporting packages required optional source directory license contents ',
 'testing  Running the Cppad Swig Tests  ',' configuration available binary directory check octave cppad_swig_lib check_swig_xam check_lib ',
 'run_cmake.sh  Get Cppad and Configure Cppad Swig for A system  ',' syntax source directory settings cmake_binary_dir cmake_generator cmake_verbose_makefile cmake_build_type swig_cxx_flags cppad_cxx_flags test_cppad ',
 'swig_xam.i  Example Using Swig with C++  ',' includes py_swig_xam m_swig_xam pl_swig_xam exception int_class int_array_ptr int_array_class vector_double swig_xam.hpp double_class ',
@@ -16,7 +16,7 @@ Keyword =
 'swig_xam_template_class.hpp  Swig Example: C++ Template Class Implementation  ',' ',
 'check_swig_xam.py  Swig Example / Test: Python Script  ',' load the module initialize error count factorial_by_value message_of_void int_class int_array_ptr int_array_class vector_double raise_exception normal_class double_class set exit code ',
 'check_swig_xam.m  Swig Example / Test: Octave Script  ',' load the module initialize error count factorial_by_value message_of_void int_class int_array_ptr int_array_class vector_double raise_exception normal_class double_class set exit code ',
-'check_swig_xam.pl  Swig Example / Test: Perl Script  ',' load the module initialize error count factorial_by_value message_of_void int_class int_array_ptr int_array_class vector_double raise_exception normal_class double_class set exit code ',
+'check_swig_xam.pl  Swig Example / Test: Perl Script  ',' add current directory search path load the module initialize error count factorial_by_value message_of_void int_class int_array_ptr int_array_class vector_double raise_exception normal_class double_class set exit code ',
 'library  The Cppad Swig Library  ',' ',
 'module  Cppad Swig Modules and Languages  ',' name module_ref ',
 'a_double  Cppad Swig AD Scalars  ',' ',

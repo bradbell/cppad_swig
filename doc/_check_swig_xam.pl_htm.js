@@ -23,6 +23,7 @@ var list_down1 = [
 'check_swig_xam.pl.htm'
 ];
 var list_current0 = [
+'check_swig_xam.pl.htm#Add Current Directory To Search Path',
 'check_swig_xam.pl.htm#Load the Module',
 'check_swig_xam.pl.htm#Initialize Error Count',
 'check_swig_xam.pl.htm#factorial_by_value',
